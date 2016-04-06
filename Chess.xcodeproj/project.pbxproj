@@ -7,18 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BB441071CB578480099837C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441061CB578480099837C /* main.m */; };
-		4BB4410A1CB578480099837C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441091CB578480099837C /* AppDelegate.m */; };
-		4BB4410C1CB578480099837C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB4410B1CB578480099837C /* art.scnassets */; };
-		4BB4410F1CB578480099837C /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4410E1CB578480099837C /* GameViewController.m */; };
-		4BB441121CB578480099837C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441101CB578480099837C /* Main.storyboard */; };
-		4BB441141CB578480099837C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441131CB578480099837C /* Assets.xcassets */; };
-		4BB441171CB578480099837C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441151CB578480099837C /* LaunchScreen.storyboard */; };
+		4B85A22B1CB582CF001C619D /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4413C1CB578670099837C /* GameViewController.mm */; };
+		4B85A22C1CB582CF001C619D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4413F1CB578670099837C /* AppDelegate.m */; };
+		4B85A22D1CB582CF001C619D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441471CB578670099837C /* main.m */; };
+		4B85A22E1CB582CF001C619D /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4414A1CB578670099837C /* GameView.m */; };
+		4B85A22F1CB582CF001C619D /* AIPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441671CB578670099837C /* AIPlayer.cpp */; };
+		4B85A2301CB582CF001C619D /* Bitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441681CB578670099837C /* Bitboard.cpp */; };
+		4B85A2311CB582CF001C619D /* BitboardHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441691CB578670099837C /* BitboardHandler.cpp */; };
+		4B85A2321CB582CF001C619D /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4416A1CB578670099837C /* Board.cpp */; };
+		4B85A2331CB582CF001C619D /* CentralBitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4416B1CB578670099837C /* CentralBitboard.cpp */; };
+		4B85A2341CB582CF001C619D /* DecentralBitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4416C1CB578670099837C /* DecentralBitboard.cpp */; };
+		4B85A2351CB582CF001C619D /* EvaluationValueHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4416D1CB578670099837C /* EvaluationValueHandler.cpp */; };
+		4B85A2361CB582CF001C619D /* GameLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4416E1CB578670099837C /* GameLogic.cpp */; };
+		4B85A2371CB582CF001C619D /* BishopStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441701CB578670099837C /* BishopStrategy.cpp */; };
+		4B85A2381CB582CF001C619D /* KingStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441711CB578670099837C /* KingStrategy.cpp */; };
+		4B85A2391CB582CF001C619D /* KnightStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441721CB578670099837C /* KnightStrategy.cpp */; };
+		4B85A23A1CB582CF001C619D /* PawnStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441731CB578670099837C /* PawnStrategy.cpp */; };
+		4B85A23B1CB582CF001C619D /* Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441741CB578670099837C /* Piece.cpp */; };
+		4B85A23C1CB582CF001C619D /* PieceStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441751CB578670099837C /* PieceStrategy.cpp */; };
+		4B85A23D1CB582CF001C619D /* QueenStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441761CB578670099837C /* QueenStrategy.cpp */; };
+		4B85A23E1CB582CF001C619D /* RookStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441771CB578670099837C /* RookStrategy.cpp */; };
+		4B85A23F1CB582CF001C619D /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441781CB578670099837C /* Player.cpp */; };
+		4B85A2401CB582CF001C619D /* LinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4417A1CB578670099837C /* LinkedList.cpp */; };
+		4B85A2411CB582CF001C619D /* PieceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4417B1CB578670099837C /* PieceFactory.cpp */; };
+		4B85A24A1CB58395001C619D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A2491CB58395001C619D /* AppDelegate.m */; };
+		4B85A24D1CB58395001C619D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A24C1CB58395001C619D /* main.m */; };
+		4B85A2501CB58395001C619D /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A24F1CB58395001C619D /* GameView.m */; };
+		4B85A2531CB58395001C619D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A2521CB58395001C619D /* GameViewController.m */; };
+		4B85A2551CB58395001C619D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B85A2541CB58395001C619D /* art.scnassets */; };
+		4B85A2571CB58395001C619D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B85A2561CB58395001C619D /* Assets.xcassets */; };
+		4B85A25A1CB58395001C619D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B85A2581CB58395001C619D /* MainMenu.xib */; };
+		4B85A2651CB58396001C619D /* Chess_for_desktopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A2641CB58396001C619D /* Chess_for_desktopTests.m */; };
+		4B85A2701CB58396001C619D /* Chess_for_desktopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A26F1CB58396001C619D /* Chess_for_desktopUITests.m */; };
 		4BB441221CB578480099837C /* ChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441211CB578480099837C /* ChessTests.m */; };
 		4BB4412D1CB578480099837C /* ChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4412C1CB578480099837C /* ChessUITests.m */; };
+		4BB4417E1CB578670099837C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441401CB578670099837C /* art.scnassets */; };
+		4BB4417F1CB578670099837C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441411CB578670099837C /* Assets.xcassets */; };
+		4BB441801CB578670099837C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441421CB578670099837C /* LaunchScreen.storyboard */; };
+		4BB441811CB578670099837C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441441CB578670099837C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4B85A2611CB58396001C619D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BB440FA1CB578480099837C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B85A2451CB58395001C619D;
+			remoteInfo = "Chess for desktop";
+		};
+		4B85A26C1CB58396001C619D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BB440FA1CB578480099837C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B85A2451CB58395001C619D;
+			remoteInfo = "Chess for desktop";
+		};
 		4BB4411E1CB578480099837C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BB440FA1CB578480099837C /* Project object */;
@@ -36,26 +79,111 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B85A2461CB58395001C619D /* Chess for desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess for desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B85A2481CB58395001C619D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4B85A2491CB58395001C619D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4B85A24C1CB58395001C619D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B85A24E1CB58395001C619D /* GameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		4B85A24F1CB58395001C619D /* GameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		4B85A2511CB58395001C619D /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		4B85A2521CB58395001C619D /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		4B85A2541CB58395001C619D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		4B85A2561CB58395001C619D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B85A2591CB58395001C619D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4B85A25B1CB58395001C619D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B85A2601CB58396001C619D /* Chess for desktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chess for desktopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B85A2641CB58396001C619D /* Chess_for_desktopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chess_for_desktopTests.m; sourceTree = "<group>"; };
+		4B85A2661CB58396001C619D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B85A26B1CB58396001C619D /* Chess for desktopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chess for desktopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B85A26F1CB58396001C619D /* Chess_for_desktopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chess_for_desktopUITests.m; sourceTree = "<group>"; };
+		4B85A2711CB58396001C619D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB441021CB578480099837C /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BB441061CB578480099837C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4BB441081CB578480099837C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4BB441091CB578480099837C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4BB4410B1CB578480099837C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		4BB4410D1CB578480099837C /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		4BB4410E1CB578480099837C /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		4BB441111CB578480099837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4BB441131CB578480099837C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4BB441161CB578480099837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4BB441181CB578480099837C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB4411D1CB578480099837C /* ChessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB441211CB578480099837C /* ChessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessTests.m; sourceTree = "<group>"; };
 		4BB441231CB578480099837C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB441281CB578480099837C /* ChessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB4412C1CB578480099837C /* ChessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessUITests.m; sourceTree = "<group>"; };
 		4BB4412E1CB578480099837C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB4413B1CB578670099837C /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		4BB4413C1CB578670099837C /* GameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
+		4BB4413E1CB578670099837C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4BB4413F1CB578670099837C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4BB441401CB578670099837C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		4BB441411CB578670099837C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BB441431CB578670099837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4BB441451CB578670099837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BB441461CB578670099837C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB441471CB578670099837C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4BB441491CB578670099837C /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		4BB4414A1CB578670099837C /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		4BB4414D1CB578670099837C /* AIPlayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AIPlayer.hpp; sourceTree = "<group>"; };
+		4BB4414E1CB578670099837C /* BasicStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicStructs.h; sourceTree = "<group>"; };
+		4BB4414F1CB578670099837C /* BishopStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BishopStrategy.hpp; sourceTree = "<group>"; };
+		4BB441501CB578670099837C /* Bitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bitboard.hpp; sourceTree = "<group>"; };
+		4BB441511CB578670099837C /* BitboardHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitboardHandler.hpp; sourceTree = "<group>"; };
+		4BB441521CB578670099837C /* Board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Board.hpp; sourceTree = "<group>"; };
+		4BB441531CB578670099837C /* CentralBitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CentralBitboard.hpp; sourceTree = "<group>"; };
+		4BB441541CB578670099837C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4BB441551CB578670099837C /* DecentralBitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DecentralBitboard.hpp; sourceTree = "<group>"; };
+		4BB441561CB578670099837C /* ErrorDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorDelegate.hpp; sourceTree = "<group>"; };
+		4BB441571CB578670099837C /* EvaluationValueHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EvaluationValueHandler.hpp; sourceTree = "<group>"; };
+		4BB441581CB578670099837C /* GameLogic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLogic.hpp; sourceTree = "<group>"; };
+		4BB441591CB578670099837C /* InputDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputDelegate.hpp; sourceTree = "<group>"; };
+		4BB4415A1CB578670099837C /* KingStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KingStrategy.hpp; sourceTree = "<group>"; };
+		4BB4415B1CB578670099837C /* KnightStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KnightStrategy.hpp; sourceTree = "<group>"; };
+		4BB4415C1CB578670099837C /* LinkedList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkedList.hpp; sourceTree = "<group>"; };
+		4BB4415D1CB578670099837C /* PawnStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PawnStrategy.hpp; sourceTree = "<group>"; };
+		4BB4415E1CB578670099837C /* Piece.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Piece.hpp; sourceTree = "<group>"; };
+		4BB4415F1CB578670099837C /* PieceDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceDelegate.hpp; sourceTree = "<group>"; };
+		4BB441601CB578670099837C /* PieceFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceFactory.hpp; sourceTree = "<group>"; };
+		4BB441611CB578670099837C /* PieceStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceStrategy.hpp; sourceTree = "<group>"; };
+		4BB441621CB578670099837C /* PieceStrategyDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceStrategyDelegate.hpp; sourceTree = "<group>"; };
+		4BB441631CB578670099837C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		4BB441641CB578670099837C /* QueenStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QueenStrategy.hpp; sourceTree = "<group>"; };
+		4BB441651CB578670099837C /* RookStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RookStrategy.hpp; sourceTree = "<group>"; };
+		4BB441671CB578670099837C /* AIPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIPlayer.cpp; sourceTree = "<group>"; };
+		4BB441681CB578670099837C /* Bitboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitboard.cpp; sourceTree = "<group>"; };
+		4BB441691CB578670099837C /* BitboardHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitboardHandler.cpp; sourceTree = "<group>"; };
+		4BB4416A1CB578670099837C /* Board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
+		4BB4416B1CB578670099837C /* CentralBitboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CentralBitboard.cpp; sourceTree = "<group>"; };
+		4BB4416C1CB578670099837C /* DecentralBitboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecentralBitboard.cpp; sourceTree = "<group>"; };
+		4BB4416D1CB578670099837C /* EvaluationValueHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EvaluationValueHandler.cpp; sourceTree = "<group>"; };
+		4BB4416E1CB578670099837C /* GameLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLogic.cpp; sourceTree = "<group>"; };
+		4BB441701CB578670099837C /* BishopStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BishopStrategy.cpp; sourceTree = "<group>"; };
+		4BB441711CB578670099837C /* KingStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KingStrategy.cpp; sourceTree = "<group>"; };
+		4BB441721CB578670099837C /* KnightStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KnightStrategy.cpp; sourceTree = "<group>"; };
+		4BB441731CB578670099837C /* PawnStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PawnStrategy.cpp; sourceTree = "<group>"; };
+		4BB441741CB578670099837C /* Piece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Piece.cpp; sourceTree = "<group>"; };
+		4BB441751CB578670099837C /* PieceStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceStrategy.cpp; sourceTree = "<group>"; };
+		4BB441761CB578670099837C /* QueenStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueenStrategy.cpp; sourceTree = "<group>"; };
+		4BB441771CB578670099837C /* RookStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RookStrategy.cpp; sourceTree = "<group>"; };
+		4BB441781CB578670099837C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		4BB4417A1CB578670099837C /* LinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedList.cpp; sourceTree = "<group>"; };
+		4BB4417B1CB578670099837C /* PieceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceFactory.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B85A2431CB58395001C619D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A25D1CB58396001C619D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A2681CB58396001C619D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BB440FF1CB578480099837C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,12 +208,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B85A2471CB58395001C619D /* Chess for desktop */ = {
+			isa = PBXGroup;
+			children = (
+				4B85A2481CB58395001C619D /* AppDelegate.h */,
+				4B85A2491CB58395001C619D /* AppDelegate.m */,
+				4B85A24E1CB58395001C619D /* GameView.h */,
+				4B85A24F1CB58395001C619D /* GameView.m */,
+				4B85A2511CB58395001C619D /* GameViewController.h */,
+				4B85A2521CB58395001C619D /* GameViewController.m */,
+				4B85A2541CB58395001C619D /* art.scnassets */,
+				4B85A2561CB58395001C619D /* Assets.xcassets */,
+				4B85A2581CB58395001C619D /* MainMenu.xib */,
+				4B85A25B1CB58395001C619D /* Info.plist */,
+				4B85A24B1CB58395001C619D /* Supporting Files */,
+			);
+			path = "Chess for desktop";
+			sourceTree = "<group>";
+		};
+		4B85A24B1CB58395001C619D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B85A24C1CB58395001C619D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B85A2631CB58396001C619D /* Chess for desktopTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B85A2641CB58396001C619D /* Chess_for_desktopTests.m */,
+				4B85A2661CB58396001C619D /* Info.plist */,
+			);
+			path = "Chess for desktopTests";
+			sourceTree = "<group>";
+		};
+		4B85A26E1CB58396001C619D /* Chess for desktopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4B85A26F1CB58396001C619D /* Chess_for_desktopUITests.m */,
+				4B85A2711CB58396001C619D /* Info.plist */,
+			);
+			path = "Chess for desktopUITests";
+			sourceTree = "<group>";
+		};
 		4BB440F91CB578480099837C = {
 			isa = PBXGroup;
 			children = (
 				4BB441041CB578480099837C /* Chess */,
 				4BB441201CB578480099837C /* ChessTests */,
 				4BB4412B1CB578480099837C /* ChessUITests */,
+				4B85A2471CB58395001C619D /* Chess for desktop */,
+				4B85A2631CB58396001C619D /* Chess for desktopTests */,
+				4B85A26E1CB58396001C619D /* Chess for desktopUITests */,
 				4BB441031CB578480099837C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +271,9 @@
 				4BB441021CB578480099837C /* Chess.app */,
 				4BB4411D1CB578480099837C /* ChessTests.xctest */,
 				4BB441281CB578480099837C /* ChessUITests.xctest */,
+				4B85A2461CB58395001C619D /* Chess for desktop.app */,
+				4B85A2601CB58396001C619D /* Chess for desktopTests.xctest */,
+				4B85A26B1CB58396001C619D /* Chess for desktopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,26 +281,12 @@
 		4BB441041CB578480099837C /* Chess */ = {
 			isa = PBXGroup;
 			children = (
-				4BB441081CB578480099837C /* AppDelegate.h */,
-				4BB441091CB578480099837C /* AppDelegate.m */,
-				4BB4410B1CB578480099837C /* art.scnassets */,
-				4BB4410D1CB578480099837C /* GameViewController.h */,
-				4BB4410E1CB578480099837C /* GameViewController.m */,
-				4BB441101CB578480099837C /* Main.storyboard */,
-				4BB441131CB578480099837C /* Assets.xcassets */,
-				4BB441151CB578480099837C /* LaunchScreen.storyboard */,
-				4BB441181CB578480099837C /* Info.plist */,
-				4BB441051CB578480099837C /* Supporting Files */,
+				4BB4413A1CB578670099837C /* Controllers */,
+				4BB4413D1CB578670099837C /* Others */,
+				4BB441481CB578670099837C /* Views */,
+				4BB4414B1CB578670099837C /* C++ Code */,
 			);
 			path = Chess;
-			sourceTree = "<group>";
-		};
-		4BB441051CB578480099837C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4BB441061CB578480099837C /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4BB441201CB578480099837C /* ChessTests */ = {
@@ -143,9 +307,178 @@
 			path = ChessUITests;
 			sourceTree = "<group>";
 		};
+		4BB4413A1CB578670099837C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4413B1CB578670099837C /* GameViewController.h */,
+				4BB4413C1CB578670099837C /* GameViewController.mm */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4BB4413D1CB578670099837C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4413E1CB578670099837C /* AppDelegate.h */,
+				4BB4413F1CB578670099837C /* AppDelegate.m */,
+				4BB441401CB578670099837C /* art.scnassets */,
+				4BB441411CB578670099837C /* Assets.xcassets */,
+				4BB441421CB578670099837C /* LaunchScreen.storyboard */,
+				4BB441441CB578670099837C /* Main.storyboard */,
+				4BB441461CB578670099837C /* Info.plist */,
+				4BB441471CB578670099837C /* main.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		4BB441481CB578670099837C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BB441491CB578670099837C /* GameView.h */,
+				4BB4414A1CB578670099837C /* GameView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BB4414B1CB578670099837C /* C++ Code */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4414C1CB578670099837C /* Headers */,
+				4BB441661CB578670099837C /* Models */,
+				4BB441791CB578670099837C /* Others */,
+			);
+			path = "C++ Code";
+			sourceTree = "<group>";
+		};
+		4BB4414C1CB578670099837C /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4414D1CB578670099837C /* AIPlayer.hpp */,
+				4BB4414E1CB578670099837C /* BasicStructs.h */,
+				4BB4414F1CB578670099837C /* BishopStrategy.hpp */,
+				4BB441501CB578670099837C /* Bitboard.hpp */,
+				4BB441511CB578670099837C /* BitboardHandler.hpp */,
+				4BB441521CB578670099837C /* Board.hpp */,
+				4BB441531CB578670099837C /* CentralBitboard.hpp */,
+				4BB441541CB578670099837C /* Constants.h */,
+				4BB441551CB578670099837C /* DecentralBitboard.hpp */,
+				4BB441561CB578670099837C /* ErrorDelegate.hpp */,
+				4BB441571CB578670099837C /* EvaluationValueHandler.hpp */,
+				4BB441581CB578670099837C /* GameLogic.hpp */,
+				4BB441591CB578670099837C /* InputDelegate.hpp */,
+				4BB4415A1CB578670099837C /* KingStrategy.hpp */,
+				4BB4415B1CB578670099837C /* KnightStrategy.hpp */,
+				4BB4415C1CB578670099837C /* LinkedList.hpp */,
+				4BB4415D1CB578670099837C /* PawnStrategy.hpp */,
+				4BB4415E1CB578670099837C /* Piece.hpp */,
+				4BB4415F1CB578670099837C /* PieceDelegate.hpp */,
+				4BB441601CB578670099837C /* PieceFactory.hpp */,
+				4BB441611CB578670099837C /* PieceStrategy.hpp */,
+				4BB441621CB578670099837C /* PieceStrategyDelegate.hpp */,
+				4BB441631CB578670099837C /* Player.hpp */,
+				4BB441641CB578670099837C /* QueenStrategy.hpp */,
+				4BB441651CB578670099837C /* RookStrategy.hpp */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4BB441661CB578670099837C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4BB441671CB578670099837C /* AIPlayer.cpp */,
+				4BB441681CB578670099837C /* Bitboard.cpp */,
+				4BB441691CB578670099837C /* BitboardHandler.cpp */,
+				4BB4416A1CB578670099837C /* Board.cpp */,
+				4BB4416B1CB578670099837C /* CentralBitboard.cpp */,
+				4BB4416C1CB578670099837C /* DecentralBitboard.cpp */,
+				4BB4416D1CB578670099837C /* EvaluationValueHandler.cpp */,
+				4BB4416E1CB578670099837C /* GameLogic.cpp */,
+				4BB4416F1CB578670099837C /* Pieces */,
+				4BB441781CB578670099837C /* Player.cpp */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4BB4416F1CB578670099837C /* Pieces */ = {
+			isa = PBXGroup;
+			children = (
+				4BB441701CB578670099837C /* BishopStrategy.cpp */,
+				4BB441711CB578670099837C /* KingStrategy.cpp */,
+				4BB441721CB578670099837C /* KnightStrategy.cpp */,
+				4BB441731CB578670099837C /* PawnStrategy.cpp */,
+				4BB441741CB578670099837C /* Piece.cpp */,
+				4BB441751CB578670099837C /* PieceStrategy.cpp */,
+				4BB441761CB578670099837C /* QueenStrategy.cpp */,
+				4BB441771CB578670099837C /* RookStrategy.cpp */,
+			);
+			path = Pieces;
+			sourceTree = "<group>";
+		};
+		4BB441791CB578670099837C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4417A1CB578670099837C /* LinkedList.cpp */,
+				4BB4417B1CB578670099837C /* PieceFactory.cpp */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4B85A2451CB58395001C619D /* Chess for desktop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B85A2721CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktop" */;
+			buildPhases = (
+				4B85A2421CB58395001C619D /* Sources */,
+				4B85A2431CB58395001C619D /* Frameworks */,
+				4B85A2441CB58395001C619D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chess for desktop";
+			productName = "Chess for desktop";
+			productReference = 4B85A2461CB58395001C619D /* Chess for desktop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B85A25F1CB58396001C619D /* Chess for desktopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B85A2751CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopTests" */;
+			buildPhases = (
+				4B85A25C1CB58396001C619D /* Sources */,
+				4B85A25D1CB58396001C619D /* Frameworks */,
+				4B85A25E1CB58396001C619D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B85A2621CB58396001C619D /* PBXTargetDependency */,
+			);
+			name = "Chess for desktopTests";
+			productName = "Chess for desktopTests";
+			productReference = 4B85A2601CB58396001C619D /* Chess for desktopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B85A26A1CB58396001C619D /* Chess for desktopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B85A2781CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopUITests" */;
+			buildPhases = (
+				4B85A2671CB58396001C619D /* Sources */,
+				4B85A2681CB58396001C619D /* Frameworks */,
+				4B85A2691CB58396001C619D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B85A26D1CB58396001C619D /* PBXTargetDependency */,
+			);
+			name = "Chess for desktopUITests";
+			productName = "Chess for desktopUITests";
+			productReference = 4B85A26B1CB58396001C619D /* Chess for desktopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4BB441011CB578480099837C /* Chess */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BB441311CB578480099837C /* Build configuration list for PBXNativeTarget "Chess" */;
@@ -208,6 +541,17 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Adnan Zahid";
 				TargetAttributes = {
+					4B85A2451CB58395001C619D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					4B85A25F1CB58396001C619D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 4B85A2451CB58395001C619D;
+					};
+					4B85A26A1CB58396001C619D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 4B85A2451CB58395001C619D;
+					};
 					4BB441011CB578480099837C = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -237,19 +581,46 @@
 				4BB441011CB578480099837C /* Chess */,
 				4BB4411C1CB578480099837C /* ChessTests */,
 				4BB441271CB578480099837C /* ChessUITests */,
+				4B85A2451CB58395001C619D /* Chess for desktop */,
+				4B85A25F1CB58396001C619D /* Chess for desktopTests */,
+				4B85A26A1CB58396001C619D /* Chess for desktopUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B85A2441CB58395001C619D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B85A2571CB58395001C619D /* Assets.xcassets in Resources */,
+				4B85A2551CB58395001C619D /* art.scnassets in Resources */,
+				4B85A25A1CB58395001C619D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A25E1CB58396001C619D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A2691CB58396001C619D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BB441001CB578480099837C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB4410C1CB578480099837C /* art.scnassets in Resources */,
-				4BB441171CB578480099837C /* LaunchScreen.storyboard in Resources */,
-				4BB441141CB578480099837C /* Assets.xcassets in Resources */,
-				4BB441121CB578480099837C /* Main.storyboard in Resources */,
+				4BB441801CB578670099837C /* LaunchScreen.storyboard in Resources */,
+				4BB4417F1CB578670099837C /* Assets.xcassets in Resources */,
+				4BB4417E1CB578670099837C /* art.scnassets in Resources */,
+				4BB441811CB578670099837C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,13 +641,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B85A2421CB58395001C619D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B85A2531CB58395001C619D /* GameViewController.m in Sources */,
+				4B85A2501CB58395001C619D /* GameView.m in Sources */,
+				4B85A24D1CB58395001C619D /* main.m in Sources */,
+				4B85A24A1CB58395001C619D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A25C1CB58396001C619D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B85A2651CB58396001C619D /* Chess_for_desktopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B85A2671CB58396001C619D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B85A2701CB58396001C619D /* Chess_for_desktopUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BB440FE1CB578480099837C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB4410A1CB578480099837C /* AppDelegate.m in Sources */,
-				4BB4410F1CB578480099837C /* GameViewController.m in Sources */,
-				4BB441071CB578480099837C /* main.m in Sources */,
+				4B85A22B1CB582CF001C619D /* GameViewController.mm in Sources */,
+				4B85A22C1CB582CF001C619D /* AppDelegate.m in Sources */,
+				4B85A22D1CB582CF001C619D /* main.m in Sources */,
+				4B85A22E1CB582CF001C619D /* GameView.m in Sources */,
+				4B85A22F1CB582CF001C619D /* AIPlayer.cpp in Sources */,
+				4B85A2301CB582CF001C619D /* Bitboard.cpp in Sources */,
+				4B85A2311CB582CF001C619D /* BitboardHandler.cpp in Sources */,
+				4B85A2321CB582CF001C619D /* Board.cpp in Sources */,
+				4B85A2331CB582CF001C619D /* CentralBitboard.cpp in Sources */,
+				4B85A2341CB582CF001C619D /* DecentralBitboard.cpp in Sources */,
+				4B85A2351CB582CF001C619D /* EvaluationValueHandler.cpp in Sources */,
+				4B85A2361CB582CF001C619D /* GameLogic.cpp in Sources */,
+				4B85A2371CB582CF001C619D /* BishopStrategy.cpp in Sources */,
+				4B85A2381CB582CF001C619D /* KingStrategy.cpp in Sources */,
+				4B85A2391CB582CF001C619D /* KnightStrategy.cpp in Sources */,
+				4B85A23A1CB582CF001C619D /* PawnStrategy.cpp in Sources */,
+				4B85A23B1CB582CF001C619D /* Piece.cpp in Sources */,
+				4B85A23C1CB582CF001C619D /* PieceStrategy.cpp in Sources */,
+				4B85A23D1CB582CF001C619D /* QueenStrategy.cpp in Sources */,
+				4B85A23E1CB582CF001C619D /* RookStrategy.cpp in Sources */,
+				4B85A23F1CB582CF001C619D /* Player.cpp in Sources */,
+				4B85A2401CB582CF001C619D /* LinkedList.cpp in Sources */,
+				4B85A2411CB582CF001C619D /* PieceFactory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +717,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4B85A2621CB58396001C619D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B85A2451CB58395001C619D /* Chess for desktop */;
+			targetProxy = 4B85A2611CB58396001C619D /* PBXContainerItemProxy */;
+		};
+		4B85A26D1CB58396001C619D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B85A2451CB58395001C619D /* Chess for desktop */;
+			targetProxy = 4B85A26C1CB58396001C619D /* PBXContainerItemProxy */;
+		};
 		4BB4411F1CB578480099837C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4BB441011CB578480099837C /* Chess */;
@@ -312,25 +740,127 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4BB441101CB578480099837C /* Main.storyboard */ = {
+		4B85A2581CB58395001C619D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4BB441111CB578480099837C /* Base */,
+				4B85A2591CB58395001C619D /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		4BB441151CB578480099837C /* LaunchScreen.storyboard */ = {
+		4BB441421CB578670099837C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4BB441161CB578480099837C /* Base */,
+				4BB441431CB578670099837C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4BB441441CB578670099837C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BB441451CB578670099837C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4B85A2731CB58396001C619D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chess for desktop/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4B85A2741CB58396001C619D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chess for desktop/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4B85A2761CB58396001C619D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Chess for desktopTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chess for desktop.app/Contents/MacOS/Chess for desktop";
+			};
+			name = Debug;
+		};
+		4B85A2771CB58396001C619D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chess for desktopTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chess for desktop.app/Contents/MacOS/Chess for desktop";
+			};
+			name = Release;
+		};
+		4B85A2791CB58396001C619D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Chess for desktopUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = "Chess for desktop";
+			};
+			name = Debug;
+		};
+		4B85A27A1CB58396001C619D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chess for desktopUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdnanZahid.Chess-for-desktopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = "Chess for desktop";
+			};
+			name = Release;
+		};
 		4BB4412F1CB578480099837C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -419,7 +949,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Chess/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chess/Others/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AdnanZahid.Chess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,7 +960,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Chess/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chess/Others/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AdnanZahid.Chess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,6 +1018,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B85A2721CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B85A2731CB58396001C619D /* Debug */,
+				4B85A2741CB58396001C619D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B85A2751CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B85A2761CB58396001C619D /* Debug */,
+				4B85A2771CB58396001C619D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B85A2781CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B85A2791CB58396001C619D /* Debug */,
+				4B85A27A1CB58396001C619D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4BB440FD1CB578480099837C /* Build configuration list for PBXProject "Chess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -504,6 +1058,7 @@
 				4BB441331CB578480099837C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BB441341CB578480099837C /* Build configuration list for PBXNativeTarget "ChessTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +1067,7 @@
 				4BB441361CB578480099837C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BB441371CB578480099837C /* Build configuration list for PBXNativeTarget "ChessUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +1076,7 @@
 				4BB441391CB578480099837C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

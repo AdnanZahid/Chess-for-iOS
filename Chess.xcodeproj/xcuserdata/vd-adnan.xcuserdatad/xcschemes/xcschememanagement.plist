@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Chess for desktop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Chess.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4B85A2451CB58395001C619D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B85A25F1CB58396001C619D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B85A26A1CB58396001C619D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4BB441011CB578480099837C</key>
 		<dict>
 			<key>primary</key>
