@@ -6,8 +6,8 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#import "../C++ Code/Headers/BasicStructs.h"
-#import "../C++ Code/Headers/Constants.h"
+#import "../C++ Code/Others/BasicStructs.cpp"
+#import "../C++ Code/Others/Constants.cpp"
 #import <SceneKit/SceneKit.h>
 
 @protocol GameViewDelegate <NSObject>

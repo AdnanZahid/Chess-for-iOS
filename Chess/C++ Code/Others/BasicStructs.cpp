@@ -6,11 +6,10 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#ifndef BasicStructs_H
-#define BasicStructs_H
+#pragma once
 
 typedef struct {
-    int rank;
+    char rank;
     char file;
 } Position;
 
@@ -29,5 +28,3 @@ typedef enum {
     white,
     black
 } Color;
-
-#endif

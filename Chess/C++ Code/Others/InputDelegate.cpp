@@ -6,6 +6,10 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
+#pragma once
+
+#include "../Models/Board.cpp"
+
 class InputDelegate {
     
 public:

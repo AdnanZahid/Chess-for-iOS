@@ -8,10 +8,11 @@
 
 #import "GameViewController.h"
 #import "../Views/GameView.h"
+#import "../Views/GameViewModel.h"
 
 #import <string>
 
-#import "../C++ Code/Headers/GameLogic.hpp"
+#import "../C++ Code/Models/GameLogic.cpp"
 class Controller;
 
 @interface GameViewController()
@@ -62,9 +63,9 @@ public:
                         sign = -1;
                     }
                     
-                    [fileArray addObject:[NSNumber numberWithInt:sign * this->board->pieceArray[a][b]->value]];
+                    [fileArray addObject:[GameViewModel modelWithValue:sign * this->board->pieceArray[a][b]->value order:this->board->pieceArray[a][b]->order]];
                 } else {
-                    [fileArray addObject:[NSNumber numberWithInt:EMPTY]];
+                    [fileArray addObject:[GameViewModel modelWithValue:EMPTY order:EMPTY]];
                 }
             }
             
@@ -106,7 +107,6 @@ public:
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.controller = new Controller(self);
 }
 
@@ -123,7 +123,9 @@ public:
 }
 
 - (void)inputTaken:(Position)from to:(Position)to {
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        self.controller->inputTaken(from, to);
+    });
 }
 
 - (BOOL)prefersStatusBarHidden {

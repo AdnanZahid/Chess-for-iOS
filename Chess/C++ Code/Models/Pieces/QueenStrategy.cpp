@@ -6,49 +6,58 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#include "../../Headers/QueenStrategy.hpp"
+#pragma once
 
-QueenStrategy::void setColor(Color color) {
-    this->color = color;
-}
+#include "../../Others/Constants.cpp"
+#include "RookStrategy.cpp"
+#include "BishopStrategy.cpp"
 
-QueenStrategy::void setPosition(Position position) {
-    this->centralBitboard->clearPreviousPosition(*this->decentralBitboard);
-    this->centralBitboard->clearPreviousQueenPosition(this->decentralBitboard);
-    this->position = position;
+class QueenStrategy : public PieceStrategy {
     
-    this->decentralBitboard->setPosition(this->position);
-    this->centralBitboard->setQueenPosition(this->decentralBitboard);
-}
-
-QueenStrategy::void updateMoves() {
-    this->decentralBitboard->setMoves(this->getMoves(this->position));
-    this->centralBitboard->setQueenMoves(this->decentralBitboard);
-}
-
-QueenStrategy::LinkedList<Position> *getMoves(Position position) {
-    
-    this->mobility = 0;
-    LinkedList<Position> *movesList = new LinkedList<Position>();
-    BishopStrategy::getMoves(this, movesList);
-    RookStrategy::getMoves(this, movesList);
-    return movesList;
-}
-
-QueenStrategy::QueenStrategy(Board *board) : PieceStrategy(board) {
-}
-
-QueenStrategy::bool move(Position from, Position to) {
-    
-    Piece *destinationPiece = this->board->getPieceOnPosition(to);
-    
-    if (destinationPiece == nullptr || destinationPiece->color != this->color) {
-        if (RookStrategy::move(this->board, from, to)) {
-            return true;
-        } else if (BishopStrategy::move(this->board, from, to)) {
-            return true;
-        }
+private:
+    void setColor(Color color) {
+        this->color = color;
     }
     
-    return false;
-}
+    void setPosition(Position position) {
+        this->centralBitboard->clearPreviousPosition(*this->decentralBitboard);
+        this->centralBitboard->clearPreviousQueenPosition(this->decentralBitboard);
+        this->position = position;
+        
+        this->decentralBitboard->setPosition(this->position);
+        this->centralBitboard->setQueenPosition(this->decentralBitboard);
+    }
+    
+    void updateMoves() {
+        this->decentralBitboard->setMoves(this->getMoves(this->position));
+        this->centralBitboard->setQueenMoves(this->decentralBitboard);
+    }
+    
+    std::list<Position> getMoves(Position position) {
+        
+        this->mobility = 0;
+        std::list<Position> movesList;
+        movesList = BishopStrategy::getMoves(this, movesList);
+        movesList = RookStrategy::getMoves(this, movesList);
+        return movesList;
+    }
+    
+public:
+    QueenStrategy(Board *board) : PieceStrategy(board) {
+    }
+    
+    bool move(Position from, Position to) {
+        
+        Piece *destinationPiece = this->board->getPieceOnPosition(to);
+        
+        if (destinationPiece == nullptr || destinationPiece->color != this->color) {
+            if (RookStrategy::move(this->board, from, to)) {
+                return true;
+            } else if (BishopStrategy::move(this->board, from, to)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+};

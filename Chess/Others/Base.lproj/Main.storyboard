@@ -54,6 +54,9 @@
                             <outlet property="toRank" destination="8YQ-mV-x66" id="ESZ-ke-6zF"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="gameView" destination="RGS-h7-eet" id="al2-3e-RCY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

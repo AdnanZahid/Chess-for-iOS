@@ -7,6 +7,7 @@
 //
 
 #import "GameView.h"
+#import "GameViewModel.h"
 
 @interface GameView()
 
@@ -15,11 +16,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *toFile;
 @property (weak, nonatomic) IBOutlet UITextField *toRank;
 
+@property (strong, nonatomic) NSMutableArray *rankArray;
+@property (nonatomic) BOOL isFirstTime;
+
 @end
 
 @implementation GameView
 
 - (void)awakeFromNib {
+    self.isFirstTime = YES;
     self.scene = [SCNScene scene];
     
     self.allowsCameraControl = YES;
@@ -81,13 +86,41 @@
 }
 
 - (void)displayView:(NSMutableArray *)rankArray {
+    self.rankArray = rankArray;
+    if (self.isFirstTime == YES) {
+        self.isFirstTime = NO;
+        [self createAllPieces:rankArray];
+    } else {
+        [self movePieces:rankArray];
+    }
+}
+
+- (void)movePieces:(NSMutableArray *)rankArray {
     
+    for (NSUInteger i = 0; i < rankArray.count; i ++) {
+        NSArray *fileArray = rankArray[i];
+        NSArray *localFileArray = self.rankArray[i];
+        for (NSUInteger j = 0; j < fileArray.count; j ++) {
+            GameViewModel *viewModel = fileArray[j];
+            GameViewModel *localViewModel = localFileArray[j];
+            
+            if (viewModel.order == localViewModel.order) {
+                
+            } else {
+                
+                int a = 10 + 5;
+            }
+        }
+    }
+}
+
+- (void)createAllPieces:(NSMutableArray *)rankArray {
     NSUInteger rank = 0;
     
-    for (NSMutableArray *fileArray in rankArray) {
+    for (NSArray *fileArray in rankArray) {
         NSUInteger file = 0;
-        for (NSNumber *valueNumber in fileArray) {
-            switch ([valueNumber intValue]) {
+        for (GameViewModel *viewModel in fileArray) {
+            switch (viewModel.value) {
                 case PAWN: {
                     [self createPieceOnX:file y:rank type:PawnType color:white];
                     break;
@@ -173,11 +206,11 @@
     NSString *toRank = self.toRank.text;
     
     Position fromPosition;
-    fromPosition.rank = [fromRank intValue];
+    fromPosition.rank = [fromRank characterAtIndex:0];
     fromPosition.file = [fromFile characterAtIndex:0];
     
     Position toPosition;
-    toPosition.rank = [toRank intValue];
+    toPosition.rank = [toRank characterAtIndex:0];
     toPosition.file = [toFile characterAtIndex:0];
     
     [self.gameViewDelegate inputTaken:fromPosition to:toPosition];

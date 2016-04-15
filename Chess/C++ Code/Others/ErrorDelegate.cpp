@@ -6,6 +6,8 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
+#pragma once
+
 #include <string>
 
 class ErrorDelegate {

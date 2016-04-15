@@ -28,7 +28,6 @@
 		4B85A23D1CB582CF001C619D /* QueenStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441761CB578670099837C /* QueenStrategy.cpp */; };
 		4B85A23E1CB582CF001C619D /* RookStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441771CB578670099837C /* RookStrategy.cpp */; };
 		4B85A23F1CB582CF001C619D /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441781CB578670099837C /* Player.cpp */; };
-		4B85A2401CB582CF001C619D /* LinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4417A1CB578670099837C /* LinkedList.cpp */; };
 		4B85A2411CB582CF001C619D /* PieceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4417B1CB578670099837C /* PieceFactory.cpp */; };
 		4B85A24A1CB58395001C619D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A2491CB58395001C619D /* AppDelegate.m */; };
 		4B85A24D1CB58395001C619D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A24C1CB58395001C619D /* main.m */; };
@@ -45,6 +44,15 @@
 		4BB4417F1CB578670099837C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441411CB578670099837C /* Assets.xcassets */; };
 		4BB441801CB578670099837C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441421CB578670099837C /* LaunchScreen.storyboard */; };
 		4BB441811CB578670099837C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441441CB578670099837C /* Main.storyboard */; };
+		4BD23A9F1CC0D6650010B542 /* BasicStructs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A981CC0D6650010B542 /* BasicStructs.cpp */; };
+		4BD23AA01CC0D6650010B542 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A991CC0D6650010B542 /* Constants.cpp */; };
+		4BD23AA11CC0D6650010B542 /* ErrorDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A9A1CC0D6650010B542 /* ErrorDelegate.cpp */; };
+		4BD23AA21CC0D6650010B542 /* InputDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A9B1CC0D6650010B542 /* InputDelegate.cpp */; };
+		4BD23AA31CC0D6650010B542 /* PieceDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A9C1CC0D6650010B542 /* PieceDelegate.cpp */; };
+		4BD23AA41CC0D6650010B542 /* PieceStrategyDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A9D1CC0D6650010B542 /* PieceStrategyDelegate.cpp */; };
+		4BD23AA51CC0D6650010B542 /* ViewDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23A9E1CC0D6650010B542 /* ViewDelegate.cpp */; };
+		4BD23AB21CC100130010B542 /* GameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23AB11CC100130010B542 /* GameViewModel.m */; };
+		4BD23AB31CC100130010B542 /* GameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD23AB11CC100130010B542 /* GameViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,31 +124,6 @@
 		4BB441471CB578670099837C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4BB441491CB578670099837C /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		4BB4414A1CB578670099837C /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
-		4BB4414D1CB578670099837C /* AIPlayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AIPlayer.hpp; sourceTree = "<group>"; };
-		4BB4414E1CB578670099837C /* BasicStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicStructs.h; sourceTree = "<group>"; };
-		4BB4414F1CB578670099837C /* BishopStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BishopStrategy.hpp; sourceTree = "<group>"; };
-		4BB441501CB578670099837C /* Bitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bitboard.hpp; sourceTree = "<group>"; };
-		4BB441511CB578670099837C /* BitboardHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitboardHandler.hpp; sourceTree = "<group>"; };
-		4BB441521CB578670099837C /* Board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Board.hpp; sourceTree = "<group>"; };
-		4BB441531CB578670099837C /* CentralBitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CentralBitboard.hpp; sourceTree = "<group>"; };
-		4BB441541CB578670099837C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		4BB441551CB578670099837C /* DecentralBitboard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DecentralBitboard.hpp; sourceTree = "<group>"; };
-		4BB441561CB578670099837C /* ErrorDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorDelegate.hpp; sourceTree = "<group>"; };
-		4BB441571CB578670099837C /* EvaluationValueHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EvaluationValueHandler.hpp; sourceTree = "<group>"; };
-		4BB441581CB578670099837C /* GameLogic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLogic.hpp; sourceTree = "<group>"; };
-		4BB441591CB578670099837C /* InputDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputDelegate.hpp; sourceTree = "<group>"; };
-		4BB4415A1CB578670099837C /* KingStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KingStrategy.hpp; sourceTree = "<group>"; };
-		4BB4415B1CB578670099837C /* KnightStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KnightStrategy.hpp; sourceTree = "<group>"; };
-		4BB4415C1CB578670099837C /* LinkedList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkedList.hpp; sourceTree = "<group>"; };
-		4BB4415D1CB578670099837C /* PawnStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PawnStrategy.hpp; sourceTree = "<group>"; };
-		4BB4415E1CB578670099837C /* Piece.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Piece.hpp; sourceTree = "<group>"; };
-		4BB4415F1CB578670099837C /* PieceDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceDelegate.hpp; sourceTree = "<group>"; };
-		4BB441601CB578670099837C /* PieceFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceFactory.hpp; sourceTree = "<group>"; };
-		4BB441611CB578670099837C /* PieceStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceStrategy.hpp; sourceTree = "<group>"; };
-		4BB441621CB578670099837C /* PieceStrategyDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceStrategyDelegate.hpp; sourceTree = "<group>"; };
-		4BB441631CB578670099837C /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
-		4BB441641CB578670099837C /* QueenStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QueenStrategy.hpp; sourceTree = "<group>"; };
-		4BB441651CB578670099837C /* RookStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RookStrategy.hpp; sourceTree = "<group>"; };
 		4BB441671CB578670099837C /* AIPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIPlayer.cpp; sourceTree = "<group>"; };
 		4BB441681CB578670099837C /* Bitboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitboard.cpp; sourceTree = "<group>"; };
 		4BB441691CB578670099837C /* BitboardHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitboardHandler.cpp; sourceTree = "<group>"; };
@@ -158,8 +141,16 @@
 		4BB441761CB578670099837C /* QueenStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueenStrategy.cpp; sourceTree = "<group>"; };
 		4BB441771CB578670099837C /* RookStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RookStrategy.cpp; sourceTree = "<group>"; };
 		4BB441781CB578670099837C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
-		4BB4417A1CB578670099837C /* LinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedList.cpp; sourceTree = "<group>"; };
 		4BB4417B1CB578670099837C /* PieceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceFactory.cpp; sourceTree = "<group>"; };
+		4BD23A981CC0D6650010B542 /* BasicStructs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicStructs.cpp; sourceTree = "<group>"; };
+		4BD23A991CC0D6650010B542 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		4BD23A9A1CC0D6650010B542 /* ErrorDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorDelegate.cpp; sourceTree = "<group>"; };
+		4BD23A9B1CC0D6650010B542 /* InputDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputDelegate.cpp; sourceTree = "<group>"; };
+		4BD23A9C1CC0D6650010B542 /* PieceDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceDelegate.cpp; sourceTree = "<group>"; };
+		4BD23A9D1CC0D6650010B542 /* PieceStrategyDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceStrategyDelegate.cpp; sourceTree = "<group>"; };
+		4BD23A9E1CC0D6650010B542 /* ViewDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewDelegate.cpp; sourceTree = "<group>"; };
+		4BD23AB01CC100130010B542 /* GameViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewModel.h; sourceTree = "<group>"; };
+		4BD23AB11CC100130010B542 /* GameViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +327,8 @@
 			children = (
 				4BB441491CB578670099837C /* GameView.h */,
 				4BB4414A1CB578670099837C /* GameView.m */,
+				4BD23AB01CC100130010B542 /* GameViewModel.h */,
+				4BD23AB11CC100130010B542 /* GameViewModel.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,43 +336,10 @@
 		4BB4414B1CB578670099837C /* C++ Code */ = {
 			isa = PBXGroup;
 			children = (
-				4BB4414C1CB578670099837C /* Headers */,
 				4BB441661CB578670099837C /* Models */,
 				4BB441791CB578670099837C /* Others */,
 			);
 			path = "C++ Code";
-			sourceTree = "<group>";
-		};
-		4BB4414C1CB578670099837C /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				4BB4414D1CB578670099837C /* AIPlayer.hpp */,
-				4BB4414E1CB578670099837C /* BasicStructs.h */,
-				4BB4414F1CB578670099837C /* BishopStrategy.hpp */,
-				4BB441501CB578670099837C /* Bitboard.hpp */,
-				4BB441511CB578670099837C /* BitboardHandler.hpp */,
-				4BB441521CB578670099837C /* Board.hpp */,
-				4BB441531CB578670099837C /* CentralBitboard.hpp */,
-				4BB441541CB578670099837C /* Constants.h */,
-				4BB441551CB578670099837C /* DecentralBitboard.hpp */,
-				4BB441561CB578670099837C /* ErrorDelegate.hpp */,
-				4BB441571CB578670099837C /* EvaluationValueHandler.hpp */,
-				4BB441581CB578670099837C /* GameLogic.hpp */,
-				4BB441591CB578670099837C /* InputDelegate.hpp */,
-				4BB4415A1CB578670099837C /* KingStrategy.hpp */,
-				4BB4415B1CB578670099837C /* KnightStrategy.hpp */,
-				4BB4415C1CB578670099837C /* LinkedList.hpp */,
-				4BB4415D1CB578670099837C /* PawnStrategy.hpp */,
-				4BB4415E1CB578670099837C /* Piece.hpp */,
-				4BB4415F1CB578670099837C /* PieceDelegate.hpp */,
-				4BB441601CB578670099837C /* PieceFactory.hpp */,
-				4BB441611CB578670099837C /* PieceStrategy.hpp */,
-				4BB441621CB578670099837C /* PieceStrategyDelegate.hpp */,
-				4BB441631CB578670099837C /* Player.hpp */,
-				4BB441641CB578670099837C /* QueenStrategy.hpp */,
-				4BB441651CB578670099837C /* RookStrategy.hpp */,
-			);
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		4BB441661CB578670099837C /* Models */ = {
@@ -417,8 +377,14 @@
 		4BB441791CB578670099837C /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				4BB4417A1CB578670099837C /* LinkedList.cpp */,
+				4BD23A981CC0D6650010B542 /* BasicStructs.cpp */,
+				4BD23A991CC0D6650010B542 /* Constants.cpp */,
+				4BD23A9A1CC0D6650010B542 /* ErrorDelegate.cpp */,
+				4BD23A9B1CC0D6650010B542 /* InputDelegate.cpp */,
+				4BD23A9C1CC0D6650010B542 /* PieceDelegate.cpp */,
 				4BB4417B1CB578670099837C /* PieceFactory.cpp */,
+				4BD23A9D1CC0D6650010B542 /* PieceStrategyDelegate.cpp */,
+				4BD23A9E1CC0D6650010B542 /* ViewDelegate.cpp */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -645,6 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD23AB31CC100130010B542 /* GameViewModel.m in Sources */,
 				4B85A2531CB58395001C619D /* GameViewController.m in Sources */,
 				4B85A2501CB58395001C619D /* GameView.m in Sources */,
 				4B85A24D1CB58395001C619D /* main.m in Sources */,
@@ -672,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD23AB21CC100130010B542 /* GameViewModel.m in Sources */,
 				4B85A22B1CB582CF001C619D /* GameViewController.mm in Sources */,
 				4B85A22C1CB582CF001C619D /* AppDelegate.m in Sources */,
 				4B85A22D1CB582CF001C619D /* main.m in Sources */,
@@ -681,19 +649,25 @@
 				4B85A2311CB582CF001C619D /* BitboardHandler.cpp in Sources */,
 				4B85A2321CB582CF001C619D /* Board.cpp in Sources */,
 				4B85A2331CB582CF001C619D /* CentralBitboard.cpp in Sources */,
+				4BD23AA31CC0D6650010B542 /* PieceDelegate.cpp in Sources */,
+				4BD23AA51CC0D6650010B542 /* ViewDelegate.cpp in Sources */,
+				4BD23A9F1CC0D6650010B542 /* BasicStructs.cpp in Sources */,
 				4B85A2341CB582CF001C619D /* DecentralBitboard.cpp in Sources */,
 				4B85A2351CB582CF001C619D /* EvaluationValueHandler.cpp in Sources */,
 				4B85A2361CB582CF001C619D /* GameLogic.cpp in Sources */,
+				4BD23AA41CC0D6650010B542 /* PieceStrategyDelegate.cpp in Sources */,
 				4B85A2371CB582CF001C619D /* BishopStrategy.cpp in Sources */,
 				4B85A2381CB582CF001C619D /* KingStrategy.cpp in Sources */,
 				4B85A2391CB582CF001C619D /* KnightStrategy.cpp in Sources */,
 				4B85A23A1CB582CF001C619D /* PawnStrategy.cpp in Sources */,
 				4B85A23B1CB582CF001C619D /* Piece.cpp in Sources */,
 				4B85A23C1CB582CF001C619D /* PieceStrategy.cpp in Sources */,
+				4BD23AA01CC0D6650010B542 /* Constants.cpp in Sources */,
 				4B85A23D1CB582CF001C619D /* QueenStrategy.cpp in Sources */,
+				4BD23AA21CC0D6650010B542 /* InputDelegate.cpp in Sources */,
 				4B85A23E1CB582CF001C619D /* RookStrategy.cpp in Sources */,
+				4BD23AA11CC0D6650010B542 /* ErrorDelegate.cpp in Sources */,
 				4B85A23F1CB582CF001C619D /* Player.cpp in Sources */,
-				4B85A2401CB582CF001C619D /* LinkedList.cpp in Sources */,
 				4B85A2411CB582CF001C619D /* PieceFactory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1025,6 +999,7 @@
 				4B85A2741CB58396001C619D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B85A2751CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopTests" */ = {
 			isa = XCConfigurationList;
@@ -1033,6 +1008,7 @@
 				4B85A2771CB58396001C619D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B85A2781CB58396001C619D /* Build configuration list for PBXNativeTarget "Chess for desktopUITests" */ = {
 			isa = XCConfigurationList;
@@ -1041,6 +1017,7 @@
 				4B85A27A1CB58396001C619D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BB440FD1CB578480099837C /* Build configuration list for PBXProject "Chess" */ = {
 			isa = XCConfigurationList;

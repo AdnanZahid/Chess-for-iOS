@@ -6,52 +6,71 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#include "../Headers/GameLogic.hpp"
+#pragma once
 
-GameLogic::GameLogic(ErrorDelegate *errorDelegate, InputDelegate *inputDelegate) {
-    this->board = new Board();
-    this->errorDelegate = errorDelegate;
-    this->inputDelegate = inputDelegate;
-    this->whitePlayer = new Player(this, this, white, this->board);
-    this->blackPlayer = new AIPlayer(this, this, black, this->board);
-    this->whitePlayer->opponent = this->blackPlayer;
-    this->blackPlayer->opponent = this->whitePlayer;
-    this->currentPlayer = this->whitePlayer;
+#include "../Others/ErrorDelegate.cpp"
+#include "../Others/InputDelegate.cpp"
+#include "Board.cpp"
+#include "Player.cpp"
+#include "AIPlayer.cpp"
+
+class GameLogic : ErrorDelegate, InputDelegate {
     
-    this->whitePlayer->updateMoves();
-    this->blackPlayer->updateMoves();
-}
+private:
+    Board *board;
+    Player *whitePlayer;
+    AIPlayer *blackPlayer;
+    ErrorDelegate *errorDelegate;
+    InputDelegate *inputDelegate;
 
-GameLogic::Board *getBoard() {
-    return this->board;
-}
-
-GameLogic::bool movePiece(Position from, Position to) {
+public:
+    Player *currentPlayer;
     
-    if (this->currentPlayer->takeTurn(from, to) == true) {
-        this->currentPlayer = this->currentPlayer->opponent;
+    GameLogic(ErrorDelegate *errorDelegate, InputDelegate *inputDelegate) {
+        this->board = new Board();
+        this->errorDelegate = errorDelegate;
+        this->inputDelegate = inputDelegate;
+        this->whitePlayer = new Player(this, this, white, this->board);
+        this->blackPlayer = new AIPlayer(this, this, black, this->board);
+        this->whitePlayer->opponent = this->blackPlayer;
+        this->blackPlayer->opponent = this->whitePlayer;
+        this->currentPlayer = this->whitePlayer;
         
         this->whitePlayer->updateMoves();
         this->blackPlayer->updateMoves();
-        
-        return true;
     }
     
-    return false;
-}
-
-GameLogic::bool shouldTakeInputFromHuman() {
-    return not this->currentPlayer->isAI;
-}
-
-GameLogic::void inputTaken(Position from, Position to) {
-    this->inputDelegate->inputTaken(from, to);
-}
-
-GameLogic::void askAIToGenerateMove() {
-    ((AIPlayer *)this->currentPlayer)->generateMove();
-}
-
-GameLogic::void error(std::string message) {
-    this->errorDelegate->error(message);
-}
+    Board *getBoard() {
+        return this->board;
+    }
+    
+    bool movePiece(Position from, Position to) {
+        
+        if (this->currentPlayer->takeTurn(from, to) == true) {
+            this->currentPlayer = this->currentPlayer->opponent;
+            
+            this->whitePlayer->updateMoves();
+            this->blackPlayer->updateMoves();
+            
+            return true;
+        }
+        
+        return false;
+    }
+    
+    bool shouldTakeInputFromHuman() {
+        return not this->currentPlayer->isAI;
+    }
+    
+    void inputTaken(Position from, Position to) {
+        this->inputDelegate->inputTaken(from, to);
+    }
+    
+    void askAIToGenerateMove() {
+        ((AIPlayer *)this->currentPlayer)->generateMove();
+    }
+    
+    void error(std::string message) {
+        this->errorDelegate->error(message);
+    }
+};

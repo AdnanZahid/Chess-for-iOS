@@ -6,15 +6,21 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#include "../Headers/DecentralBitboard.hpp"
+#pragma once
 
-DecentralBitboard::void setPosition(Position position) {
-    this->position = this->computeBitboardFromPosition(position);
-}
+#include "Bitboard.cpp"
 
-DecentralBitboard::void setMoves(LinkedList<Position> *moves) {
-    this->moves = 0;
-    for(LinkedList<Position>::Node *node = moves->head; node != nullptr; node = node->next) {
-        this->moves |= this->computeBitboardFromPosition(*node->value);
+class DecentralBitboard : public Bitboard {
+    
+public:
+    void setPosition(Position position) {
+        this->position = this->computeBitboardFromPosition(position);
     }
-}
+    
+    void setMoves(std::list<Position> moves) {
+        this->moves = 0;
+        for(std::list<Position>::iterator iterator = moves.begin(); iterator != moves.end(); iterator++) {
+            this->moves |= this->computeBitboardFromPosition(*iterator);
+        }
+    }
+};

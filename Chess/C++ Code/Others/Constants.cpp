@@ -6,6 +6,8 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
+#pragma once
+
 #define CAMERA_X_POSITION 3.5f
 #define CAMERA_Y_POSITION 8.5f
 #define CAMERA_Z_POSITION 20.0f
@@ -24,7 +26,7 @@
 #define NUMBER_OF_RANKS_ON_BOARD 8
 #define NUMBER_OF_FILES_ON_BOARD 8
 
-#define MAX_PLIES 6
+#define MAX_PLIES 3
 
 #define CHECK_STRING "Check!"
 #define CHECKMATE_STRING "Checkmate!"
@@ -34,6 +36,9 @@
 #define PIECE_DOES_NOT_EXIST_STRING "Piece does not exist!"
 #define PIECE_NOT_MOVED_STRING "Piece not moved!"
 #define DESTINATION_OUT_OF_BOARD_STRING "Destination out of board"
+
+#include <stdint.h>
+typedef uint64_t U64;
 
 typedef enum {
     EMPTY = 0,

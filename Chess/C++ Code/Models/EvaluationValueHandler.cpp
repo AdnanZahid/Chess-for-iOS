@@ -6,18 +6,24 @@
 //  Copyright © 2016 Adnan Zahid. All rights reserved.
 //
 
-#include "../Headers/EvaluationValueHandler.hpp"
+#include "Pieces/Piece.cpp"
 
-EvaluationValueHandler::int getEvaluationValue(LinkedList<Piece> *piecesList) {
+class EvaluationValueHandler {
+
+private:
     
-    int mobility = 0;
-    int value = 0;
     
-    for(LinkedList<Piece>::Node *pieceNode = piecesList->head; pieceNode != nullptr; pieceNode = pieceNode->next) {
+public:
+    int getEvaluationValue(std::list<Piece> piecesList) {
         
-        mobility += pieceNode->value->pieceStrategy->mobility;
-        value += pieceNode->value->value;
+        int mobility = 0;
+        int value = 0;
+        
+        for(std::list<Piece>::iterator iterator = piecesList.begin(); iterator != piecesList.end(); iterator++) {
+            mobility += iterator->pieceStrategy->mobility;
+            value += iterator->value;
+        }
+        
+        return mobility + value;
     }
-    
-    return mobility + value;
-}
+};
