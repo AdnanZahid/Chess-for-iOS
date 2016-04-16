@@ -47,17 +47,17 @@ private:
         this->mobility = 0;
         std::list<Position> movesList;
         
-        if ((this->color == white && position.rank < '7') || (this->color == black && position.rank > '2')) {
-            if ((this->color == white && position.rank < '8') || (this->color == black && position.rank > '1')) {
+        if ((this->color == white && position.rank < RANK_SEVEN) || (this->color == black && position.rank > RANK_TWO)) {
+            if ((this->color == white && position.rank < RANK_EIGHT) || (this->color == black && position.rank > RANK_ONE)) {
                 Position toOneStep = { (char)(position.rank + oneStep), position.file };
                 movesList = this->addMoveToList(position, toOneStep, movesList);
                 
-                if (position.file > 'a') {
+                if (position.file > FILE_A) {
                     Position toOneLeftStep = { (char)(position.rank + oneStep), (char)(position.file - 1) };
                     movesList = this->addMoveToList(position, toOneLeftStep, movesList);
                 }
                 
-                if (position.file < 'h') {
+                if (position.file < FILE_H) {
                     Position toOneRightStep = { (char)(position.rank + oneStep), (char)(position.file + 1) };
                     movesList = this->addMoveToList(position, toOneRightStep, movesList);
                 }

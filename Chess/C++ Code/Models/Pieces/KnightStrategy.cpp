@@ -36,48 +36,48 @@ private:
         this->mobility = 0;
         std::list<Position> movesList;
         
-        if (position.file > 'a') {
-            if (position.rank > '2') {
+        if (position.file > FILE_A) {
+            if (position.rank > RANK_TWO) {
                 Position toOneLeftTwoBackwardStep = { (char)(position.rank - 2), (char)(position.file - 1) };
                 movesList = this->addMoveToList(position, toOneLeftTwoBackwardStep, movesList);
             }
             
-            if (position.rank < '7') {
+            if (position.rank < RANK_SEVEN) {
                 Position toOneLeftTwoForwardStep = { (char)(position.rank + 2), (char)(position.file - 1) };
                 movesList = this->addMoveToList(position, toOneLeftTwoForwardStep, movesList);
             }
             
-            if (position.file > 'b') {
-                if (position.rank > '1') {
+            if (position.file > FILE_B) {
+                if (position.rank > RANK_ONE) {
                     Position toTwoLeftOneBackwardStep = { (char)(position.rank - 1), (char)(position.file - 2) };
                     movesList = this->addMoveToList(position, toTwoLeftOneBackwardStep, movesList);
                 }
                 
-                if (position.rank < '8') {
+                if (position.rank < RANK_EIGHT) {
                     Position toTwoLeftOneForwardStep = { (char)(position.rank + 1), (char)(position.file - 2) };
                     movesList = this->addMoveToList(position, toTwoLeftOneForwardStep, movesList);
                 }
             }
         }
         
-        if (position.file < 'h') {
-            if (position.rank > '2') {
+        if (position.file < FILE_H) {
+            if (position.rank > RANK_TWO) {
                 Position toOneRightTwoBackwardStep = { (char)(position.rank - 2), (char)(position.file + 1) };
                 movesList = this->addMoveToList(position, toOneRightTwoBackwardStep, movesList);
             }
             
-            if (position.rank < '7') {
+            if (position.rank < RANK_SEVEN) {
                 Position toOneRightTwoForwardStep = { (char)(position.rank + 2), (char)(position.file + 1) };
                 movesList = this->addMoveToList(position, toOneRightTwoForwardStep, movesList);
             }
             
-            if (position.file < 'g') {
-                if (position.rank > '1') {
+            if (position.file < FILE_G) {
+                if (position.rank > RANK_ONE) {
                     Position toTwoRightOneBackwardStep = { (char)(position.rank - 1), (char)(position.file + 2) };
                     movesList = this->addMoveToList(position, toTwoRightOneBackwardStep, movesList);
                 }
                 
-                if (position.rank < '8') {
+                if (position.rank < RANK_EIGHT) {
                     Position toTwoRightOneForwardStep = { (char)(position.rank + 1), (char)(position.file + 2) };
                     movesList = this->addMoveToList(position, toTwoRightOneForwardStep, movesList);
                 }

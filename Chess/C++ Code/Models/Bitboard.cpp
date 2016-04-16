@@ -29,10 +29,10 @@ public:
             
             bitboardPosition &= 0b1111111111111111111111111111111111111111111111111111111111111110;
             
-            int x = order % 8;
-            int y = order / 8;
+            int file = order % NUMBER_OF_FILES_ON_BOARD;
+            int rank = order / NUMBER_OF_RANKS_ON_BOARD;
             
-            Position position = Board::indexToPosition(x, y);
+            Position position = Board::indexToPosition(file, rank);
             list.push_back(position);
         }
         
@@ -42,10 +42,10 @@ public:
     U64 computeBitboardFromPosition(Position position) {
         
         Index index = Board::positionToIndex(position);
-        int x = index.x;
-        int y = index.y;
+        int file = index.x;
+        int rank = index.y;
         
-        int order = (y * 8) + x;
+        int order = (rank * NUMBER_OF_RANKS_ON_BOARD) + file;
         U64 bitboard = 1ull << order;
         return bitboard;
     }

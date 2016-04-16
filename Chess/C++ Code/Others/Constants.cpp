@@ -9,12 +9,18 @@
 #pragma once
 
 #define CAMERA_X_POSITION 3.5f
-#define CAMERA_Y_POSITION 8.5f
-#define CAMERA_Z_POSITION 20.0f
+#define CAMERA_Y_POSITION 12.0f
+#define CAMERA_Z_POSITION 14.0f
+
+#define CAMERA_X_ROTATION -0.85f
+#define CAMERA_Y_ROTATION 0.0f
+#define CAMERA_Z_ROTATION 0.0f
 
 #define LIGHT_X_POSITION 0.0f
 #define LIGHT_Y_POSITION 10.0f
 #define LIGHT_Z_POSITION 10.0f
+
+#define LIFT_PIECE_Y_DISTANCE 0.5f
 
 #define EmptyType  @"Empty"
 #define PawnType   @"Pawn"
@@ -37,6 +43,19 @@
 #define PIECE_DOES_NOT_EXIST_STRING "Piece does not exist!"
 #define PIECE_NOT_MOVED_STRING "Piece not moved!"
 #define DESTINATION_OUT_OF_BOARD_STRING "Destination out of board"
+
+#define FILE_A 'a'
+#define FILE_B 'b'
+#define FILE_C 'c'
+#define FILE_D 'd'
+#define FILE_F 'f'
+#define FILE_G 'g'
+#define FILE_H 'h'
+
+#define RANK_ONE '1'
+#define RANK_TWO '2'
+#define RANK_SEVEN '7'
+#define RANK_EIGHT '8'
 
 #include <stdint.h>
 typedef uint64_t U64;

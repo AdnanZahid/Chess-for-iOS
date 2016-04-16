@@ -38,6 +38,7 @@
 		4B85A25A1CB58395001C619D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B85A2581CB58395001C619D /* MainMenu.xib */; };
 		4B85A2651CB58396001C619D /* Chess_for_desktopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A2641CB58396001C619D /* Chess_for_desktopTests.m */; };
 		4B85A2701CB58396001C619D /* Chess_for_desktopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85A26F1CB58396001C619D /* Chess_for_desktopUITests.m */; };
+		4BAD9E751CC2B33E009001B5 /* SquareNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD9E741CC2B33E009001B5 /* SquareNode.m */; };
 		4BB441221CB578480099837C /* ChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441211CB578480099837C /* ChessTests.m */; };
 		4BB4412D1CB578480099837C /* ChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4412C1CB578480099837C /* ChessUITests.m */; };
 		4BB4417E1CB578670099837C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB441401CB578670099837C /* art.scnassets */; };
@@ -105,6 +106,8 @@
 		4B85A26B1CB58396001C619D /* Chess for desktopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chess for desktopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B85A26F1CB58396001C619D /* Chess_for_desktopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chess_for_desktopUITests.m; sourceTree = "<group>"; };
 		4B85A2711CB58396001C619D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BAD9E731CC2B33E009001B5 /* SquareNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareNode.h; sourceTree = "<group>"; };
+		4BAD9E741CC2B33E009001B5 /* SquareNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareNode.m; sourceTree = "<group>"; };
 		4BB441021CB578480099837C /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB4411D1CB578480099837C /* ChessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB441211CB578480099837C /* ChessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessTests.m; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				4BB4414A1CB578670099837C /* GameView.m */,
 				4BD23AB01CC100130010B542 /* GameViewModel.h */,
 				4BD23AB11CC100130010B542 /* GameViewModel.m */,
+				4BAD9E731CC2B33E009001B5 /* SquareNode.h */,
+				4BAD9E741CC2B33E009001B5 /* SquareNode.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				4B85A2301CB582CF001C619D /* Bitboard.cpp in Sources */,
 				4B85A2311CB582CF001C619D /* BitboardHandler.cpp in Sources */,
 				4B85A2321CB582CF001C619D /* Board.cpp in Sources */,
+				4BAD9E751CC2B33E009001B5 /* SquareNode.m in Sources */,
 				4B85A2331CB582CF001C619D /* CentralBitboard.cpp in Sources */,
 				4BD23AA31CC0D6650010B542 /* PieceDelegate.cpp in Sources */,
 				4BD23AA51CC0D6650010B542 /* ViewDelegate.cpp in Sources */,

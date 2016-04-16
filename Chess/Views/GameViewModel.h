@@ -14,8 +14,8 @@
 @property (nonatomic) NSUInteger order;
 
 @property (strong, nonatomic) SCNNode *pieceNode;
-@property (nonatomic) NSUInteger x;
-@property (nonatomic) NSUInteger y;
+@property (nonatomic) NSUInteger file;
+@property (nonatomic) NSUInteger rank;
 
 + (id)modelWithValue:(NSUInteger)value order:(NSUInteger)order;
 

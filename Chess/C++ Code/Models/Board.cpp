@@ -9,6 +9,7 @@
 #pragma once
 
 #include "../Others/BasicStructs.cpp"
+#include "../Others/Constants.cpp"
 
 class Piece;
 
@@ -74,8 +75,8 @@ public:
         
         Index index;
         
-        index.x = position.file - 'a';
-        index.y = position.rank - '1';
+        index.x = position.file - FILE_A;
+        index.y = position.rank - RANK_ONE;
         
         return index;
     }
@@ -84,8 +85,8 @@ public:
         
         Position position;
         
-        position.file = x + 'a';
-        position.rank = y + '1';
+        position.file = x + FILE_A;
+        position.rank = y + RANK_ONE;
         
         return position;
     }

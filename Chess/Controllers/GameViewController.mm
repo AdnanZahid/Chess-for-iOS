@@ -48,7 +48,7 @@ public:
     void createAllPieces() {
         NSMutableArray *rankArray = [NSMutableArray arrayWithCapacity:NUMBER_OF_RANKS_ON_BOARD];
         
-        for (int rank = NUMBER_OF_RANKS_ON_BOARD - 1; rank >= 0; rank --) {
+        for (int rank = 0; rank < NUMBER_OF_RANKS_ON_BOARD; rank ++) {
             
             NSMutableArray *fileArray = [NSMutableArray arrayWithCapacity:NUMBER_OF_FILES_ON_BOARD];
             
@@ -99,6 +99,12 @@ public:
         }
     }
     
+    void inputTaken(Index fromIndex, Index toIndex) {
+        Position from = this->board->indexToPosition(fromIndex.x, fromIndex.y);
+        Position to = this->board->indexToPosition(toIndex.x, toIndex.y);
+        this->inputTaken(from, to);
+    }
+    
     void movePiece(Position from, Position to) {
         Index fromIndex = this->board->positionToIndex(from);
         Index toIndex = this->board->positionToIndex(to);
@@ -126,18 +132,24 @@ public:
 }
 
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex {
-//    dispatch_async(dispatch_get_main_queue(), ^(void) {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
         [self.gameView movePiece:fromIndex to:toIndex];
-//    });
+    });
 }
 
 - (void)canTakeInput:(Color)color {
     [self.gameView canTakeInput:color];
 }
 
-- (void)inputTaken:(Position)from to:(Position)to {
+- (void)inputTakenFrom:(Position)from to:(Position)to {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         self.controller->inputTaken(from, to);
+    });
+}
+
+- (void)inputTakenFromIndex:(Index)fromIndex toIndex:(Index)toIndex {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        self.controller->inputTaken(fromIndex, toIndex);
     });
 }
 

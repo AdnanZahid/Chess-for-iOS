@@ -67,11 +67,11 @@ public:
         this->pieceStrategy->setPosition(this->position);
         
         Index index = this->board->positionToIndex(this->position);
-        this->order = (index.y * 8) + index.x + 1;
+        this->order = (index.y * NUMBER_OF_RANKS_ON_BOARD) + index.x + 1;
     }
     
     void promoteIfApplicable() {
-        if ((this->position.rank == 1 || this->position.rank == 8) && this->value == PAWN) {
+        if ((this->position.rank == RANK_ONE || this->position.rank == RANK_EIGHT) && this->value == PAWN) {
             this->value = QUEEN;
 //            this->setPieceStrategy(new QueenStrategy(this->board)); // UNCOMMENT THIS PLEASE
         }

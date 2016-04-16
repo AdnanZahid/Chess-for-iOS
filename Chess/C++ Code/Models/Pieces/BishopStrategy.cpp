@@ -49,25 +49,25 @@ public:
         Index index = pieceStrategy->board->positionToIndex(pieceStrategy->position);
         
         if (index.y <= index.x) {
-            for (int x = index.x - index.y, y = 0; x < 8; x ++, y ++) {
-                Position to = pieceStrategy->board->indexToPosition(x, y);
+            for (int file = index.x - index.y, rank = 0; file < NUMBER_OF_FILES_ON_BOARD; file ++, rank ++) {
+                Position to = pieceStrategy->board->indexToPosition(file, rank);
                 movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);
             }
         } else {
-            for (int x = 0, y = index.y - index.x; y < 8; x ++, y ++) {
-                Position to = pieceStrategy->board->indexToPosition(x, y);
+            for (int file = 0, rank = index.y - index.x; rank < NUMBER_OF_RANKS_ON_BOARD; file ++, rank ++) {
+                Position to = pieceStrategy->board->indexToPosition(file, rank);
                 movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);
             }
         }
         
-        if (index.x + index.y < 8) {
-            for (int x = 0, y = index.x + index.y; y >= 0; x ++, y --) {
-                Position to = pieceStrategy->board->indexToPosition(x, y);
+        if (index.x + index.y < NUMBER_OF_RANKS_ON_BOARD) {
+            for (int file = 0, rank = index.x + index.y; rank >= 0; file ++, rank --) {
+                Position to = pieceStrategy->board->indexToPosition(file, rank);
                 movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);
             }
         } else {
-            for (int x = index.x + index.y - 7, y = 7; x < 8; x ++, y --) {
-                Position to = pieceStrategy->board->indexToPosition(x, y);
+            for (int file = index.x + index.y - 7, rank = NUMBER_OF_RANKS_ON_BOARD - 1; file < NUMBER_OF_RANKS_ON_BOARD; file ++, rank --) {
+                Position to = pieceStrategy->board->indexToPosition(file, rank);
                 movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);
             }
         }
@@ -95,33 +95,33 @@ public:
                 if (std::fabs(from.file - to.file) == std::fabs(from.rank - to.rank)) {
                     
                     if (from.file < to.file && from.rank < to.rank) {
-                        for (int i = from.file + 1, j = from.rank + 1; i < to.file && j < to.rank; i ++, j ++) {
-                            tempPosition.file = i;
-                            tempPosition.rank = j;
+                        for (int file = from.file + 1, rank = from.rank + 1; file < to.file && rank < to.rank; file ++, rank ++) {
+                            tempPosition.file = file;
+                            tempPosition.rank = rank;
                             if (board->getPieceOnPosition(tempPosition) != nullptr) {
                                 return false;
                             }
                         }
                     } else if (from.file > to.file && from.rank < to.rank) {
-                        for (int i = from.file - 1, j = from.rank + 1; i > to.file && j < to.rank; i --, j ++) {
-                            tempPosition.file = i;
-                            tempPosition.rank = j;
+                        for (int file = from.file - 1, rank = from.rank + 1; file > to.file && rank < to.rank; file --, rank ++) {
+                            tempPosition.file = file;
+                            tempPosition.rank = rank;
                             if (board->getPieceOnPosition(tempPosition) != nullptr) {
                                 return false;
                             }
                         }
                     } else if (from.file > to.file && from.rank > to.rank) {
-                        for (int i = from.file - 1, j = from.rank - 1; i > to.file && j > to.rank; i --, j --) {
-                            tempPosition.file = i;
-                            tempPosition.rank = j;
+                        for (int file = from.file - 1, rank = from.rank - 1; file > to.file && rank > to.rank; file --, rank --) {
+                            tempPosition.file = file;
+                            tempPosition.rank = rank;
                             if (board->getPieceOnPosition(tempPosition) != nullptr) {
                                 return false;
                             }
                         }
                     } else if (from.file < to.file && from.rank > to.rank) {
-                        for (int i = from.file + 1, j = from.rank - 1; i < to.file && j > to.rank; i ++, j --) {
-                            tempPosition.file = i;
-                            tempPosition.rank = j;
+                        for (int file = from.file + 1, rank = from.rank - 1; file < to.file && rank > to.rank; file ++, rank --) {
+                            tempPosition.file = file;
+                            tempPosition.rank = rank;
                             if (board->getPieceOnPosition(tempPosition) != nullptr) {
                                 return false;
                             }

@@ -112,8 +112,8 @@ public:
     
     void setupPieces() {
         
-        for (int rank = 7; rank > -1; rank --) {
-            for (int file = 0; file < 8; file ++) {
+        for (int rank = 0; rank < NUMBER_OF_RANKS_ON_BOARD; rank ++) {
+            for (int file = 0; file < NUMBER_OF_FILES_ON_BOARD; file ++) {
                 int value = startup[rank][file];
                 
                 if (value != 0) {
@@ -141,9 +141,9 @@ public:
         
         if (value == KING) {
             this->king = piece;
-        } else if (value == ROOK && position.file == 'a') {
+        } else if (value == ROOK && position.file == FILE_A) {
             this->queenSideRook = piece;
-        } else if (value == ROOK && position.file == 'h') {
+        } else if (value == ROOK && position.file == FILE_H) {
             this->kingSideRook = piece;
         }
         
@@ -219,14 +219,14 @@ public:
     bool moveKingSideRook() {
         Position position;
         position.rank = this->kingSideRook->position.rank;
-        position.file = 'f';
+        position.file = FILE_F;
         return this->movePiece(this->kingSideRook->position, position);
     }
     
     bool moveQueenSideRook() {
         Position position;
         position.rank = this->queenSideRook->position.rank;
-        position.file = 'd';
+        position.file = FILE_D;
         return this->movePiece(this->queenSideRook->position, position);
     }
     

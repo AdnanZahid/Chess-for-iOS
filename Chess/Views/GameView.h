@@ -12,7 +12,8 @@
 
 @protocol GameViewDelegate <NSObject>
 
-- (void)inputTaken:(Position)from to:(Position)to;
+- (void)inputTakenFrom:(Position)from to:(Position)to;
+- (void)inputTakenFromIndex:(Index)fromIndex toIndex:(Index)toIndex;
 
 @end
 

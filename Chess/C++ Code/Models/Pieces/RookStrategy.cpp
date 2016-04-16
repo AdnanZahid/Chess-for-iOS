@@ -85,15 +85,15 @@ public:
             if (from.rank != to.rank) {
                 
                 if (from.rank < to.rank) {
-                    for (int i = from.rank + 1; i < to.rank; i ++) {
-                        tempPosition.rank = i;
+                    for (int file = from.rank + 1; file < to.rank; file ++) {
+                        tempPosition.rank = file;
                         if (board->getPieceOnPosition(tempPosition) != nullptr) {
                             return false;
                         }
                     }
                 } else {
-                    for (int i = to.rank + 1; i < from.rank; i ++) {
-                        tempPosition.rank = i;
+                    for (int file = to.rank + 1; file < from.rank; file ++) {
+                        tempPosition.rank = file;
                         if (board->getPieceOnPosition(tempPosition) != nullptr) {
                             return false;
                         }
@@ -106,15 +106,15 @@ public:
             if (from.file != to.file) {
                 
                 if (from.file < to.file) {
-                    for (int i = from.file + 1; i < to.file; i ++) {
-                        tempPosition.file = i;
+                    for (int file = from.file + 1; file < to.file; file ++) {
+                        tempPosition.file = file;
                         if (board->getPieceOnPosition(tempPosition) != nullptr) {
                             return false;
                         }
                     }
                 } else {
-                    for (int i = to.file + 1; i < from.file; i ++) {
-                        tempPosition.file = i;
+                    for (int file = to.file + 1; file < from.file; file ++) {
+                        tempPosition.file = file;
                         if (board->getPieceOnPosition(tempPosition) != nullptr) {
                             return false;
                         }

@@ -37,41 +37,41 @@ private:
         this->mobility = 0;
         std::list<Position> movesList;
         
-        if (position.rank > '1') {
+        if (position.rank > RANK_ONE) {
             Position toOneForwardStep = { (char)(position.rank - 1), position.file };
             movesList = this->addMoveToList(position, toOneForwardStep, movesList);
         }
         
-        if (position.rank < '8') {
+        if (position.rank < RANK_EIGHT) {
             Position toOneBackwardStep = { (char)(position.rank + 1), position.file };
             movesList = this->addMoveToList(position, toOneBackwardStep, movesList);
         }
         
-        if (position.file > 'a') {
+        if (position.file > FILE_A) {
             Position toOneLeftStep = { position.rank, (char)(position.file - 1) };
             movesList = this->addMoveToList(position, toOneLeftStep, movesList);
             
-            if (position.rank > '1') {
+            if (position.rank > RANK_ONE) {
                 Position toOneLeftBackwardStep = { (char)(position.rank - 1), (char)(position.file - 1) };
                 movesList = this->addMoveToList(position, toOneLeftBackwardStep, movesList);
             }
             
-            if (position.rank < '8') {
+            if (position.rank < RANK_EIGHT) {
                 Position toOneLeftForwardStep = { (char)(position.rank + 1), (char)(position.file - 1) };
                 movesList = this->addMoveToList(position, toOneLeftForwardStep, movesList);
             }
         }
         
-        if (position.file < 'h') {
+        if (position.file < FILE_H) {
             Position toOneRightStep = { position.rank, (char)(position.file + 1) };
             movesList = this->addMoveToList(position, toOneRightStep, movesList);
             
-            if (position.rank > '1') {
+            if (position.rank > RANK_ONE) {
                 Position toOneRightBackwardStep = { (char)(position.rank - 1), (char)(position.file + 1) };
                 movesList = this->addMoveToList(position, toOneRightBackwardStep, movesList);
             }
             
-            if (position.rank < '8') {
+            if (position.rank < RANK_EIGHT) {
                 Position toOneRightForwardStep = { (char)(position.rank + 1), (char)(position.file + 1) };
                 movesList = this->addMoveToList(position, toOneRightForwardStep, movesList);
             }
@@ -96,11 +96,11 @@ public:
                 return true;
             
             } else if (this->hasMoved == false) {
-                if (to.file == 'c' && from.rank == to.rank) {
+                if (to.file == FILE_C && from.rank == to.rank) {
                     
                     if (from.file > from.file) {
-                        for (int i = to.file + 1; i < from.file; i ++) {
-                            if(this->pieceStrategyDelegate->canCheckDuringPassing(board->indexToPosition(i, fromIndex.y))) {
+                        for (int file = to.file + 1; file < from.file; file ++) {
+                            if(this->pieceStrategyDelegate->canCheckDuringPassing(board->indexToPosition(file, fromIndex.y))) {
                                 return false;
                             }
                         }
@@ -112,11 +112,11 @@ public:
                     }
                     return false;
                 
-                } else if (to.file == 'g' && from.rank == to.rank) {
+                } else if (to.file == FILE_G && from.rank == to.rank) {
                     
                     if (from.file < to.file) {
-                        for (int i = fromIndex.x + 1; i < to.file; i ++) {
-                            if(this->pieceStrategyDelegate->canCheckDuringPassing(board->indexToPosition(fromIndex.y, i))) {
+                        for (int file = fromIndex.x + 1; file < to.file; file ++) {
+                            if(this->pieceStrategyDelegate->canCheckDuringPassing(board->indexToPosition(fromIndex.y, file))) {
                                 return false;
                             }
                         }
