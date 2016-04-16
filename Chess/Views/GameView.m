@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) NSArray *previousBoardArray;
 
+@property (strong, nonatomic) SCNNode *cameraNode;
 @property (strong, nonatomic) SCNNode *liftedPiece;
 
 @end
@@ -32,12 +33,12 @@
     self.showsStatistics = YES;
     self.backgroundColor = [UIColor blackColor];
     
-    SCNNode *cameraNode = [SCNNode node];
-    cameraNode.camera = [SCNCamera camera];
-    [self.scene.rootNode addChildNode:cameraNode];
+    self.cameraNode = [SCNNode node];
+    self.cameraNode.camera = [SCNCamera camera];
+    [self.scene.rootNode addChildNode:self.cameraNode];
     
-    cameraNode.position = SCNVector3Make(CAMERA_X_POSITION, CAMERA_Y_POSITION, CAMERA_Z_POSITION);
-    cameraNode.eulerAngles = SCNVector3Make(CAMERA_X_ROTATION, CAMERA_Y_ROTATION, CAMERA_Z_ROTATION);
+    self.cameraNode.position = SCNVector3Make(CAMERA_X_POSITION, CAMERA_Y_POSITION, CAMERA_Z_POSITION);
+    self.cameraNode.eulerAngles = SCNVector3Make(WHITE_CAMERA_X_ROTATION, WHITE_CAMERA_Y_ROTATION, WHITE_CAMERA_Z_ROTATION);
     
     SCNNode *lightNode = [SCNNode node];
     lightNode.light = [SCNLight light];
@@ -94,9 +95,17 @@
     GameViewModel *viewModel = self.previousBoardArray[fromIndex.y][fromIndex.x];
     SCNNode *pieceNode = viewModel.pieceNode;
     [self.previousBoardArray[toIndex.y][toIndex.x] setPieceNode:pieceNode];
-    pieceNode.position = SCNVector3Make(toIndex.x, 0.0f, -toIndex.y + 7);
+    [self animateWithAction:^{
+        pieceNode.position = SCNVector3Make(toIndex.x, 0.0f, -toIndex.y + 7);
+    }];
     viewModel.pieceNode = nil;
     [self createPieceOnFile:fromIndex.y rank:fromIndex.x type:EMPTY color:white viewModel:viewModel];
+    self.liftedPiece = nil;
+}
+
+- (void)cannotMovePiece {
+    [self liftPiece:self.liftedPiece direction:-1];
+    self.liftedPiece = nil;
 }
 
 - (void)createAllPieces:(NSMutableArray *)rankArray {
@@ -212,13 +221,21 @@
 }
 
 - (void)canTakeInput:(Color)color {
-    
+    if (color == white) {
+        [self animateWithAction:^{
+            self.cameraNode.eulerAngles = SCNVector3Make(WHITE_CAMERA_X_ROTATION, WHITE_CAMERA_Y_ROTATION, WHITE_CAMERA_Z_ROTATION);
+        }];
+    } else {
+        [self animateWithAction:^{
+            self.cameraNode.eulerAngles = SCNVector3Make(BLACK_CAMERA_X_ROTATION, BLACK_CAMERA_Y_ROTATION, BLACK_CAMERA_Z_ROTATION);
+        }];
+    }
 }
 
-- (void)liftPieceUp:(SquareNode *)pieceNode {
+- (void)liftPiece:(SCNNode *)pieceNode direction:(int)direction {
     self.liftedPiece = pieceNode;
     SCNVector3 position = self.liftedPiece.position;
-    position.y += LIFT_PIECE_Y_DISTANCE;
+    position.y += LIFT_PIECE_Y_DISTANCE * direction;
     self.liftedPiece.position = position;
 }
 
@@ -246,19 +263,23 @@
         // retrieved the first clicked object
         SCNHitTestResult *result = [hitResults objectAtIndex:0];
         
-        [SCNTransaction begin];
-        [SCNTransaction setAnimationDuration:0.5];
+        SCNNode *node = result.node;
         
-        SquareNode *squareNode = (SquareNode *)result.node;
-        
-        if ([result.node isKindOfClass:[SquareNode class]]) {
-            [self moveToSquare:squareNode];
-        } else {
-            [self liftPieceUp:squareNode];
-        }
-        
-        [SCNTransaction commit];
+        [self animateWithAction:^{
+            if ([result.node isKindOfClass:[SquareNode class]]) {
+                [self moveToSquare:(SquareNode *)node];
+            } else if (self.liftedPiece == nil) {
+                [self liftPiece:node direction:1];
+            }
+        }];
     }
+}
+
+- (void)animateWithAction:(void (^)())action {
+    [SCNTransaction begin];
+    [SCNTransaction setAnimationDuration:0.5];
+    action();
+    [SCNTransaction commit];
 }
 
 @end

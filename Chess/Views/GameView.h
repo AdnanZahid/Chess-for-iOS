@@ -23,6 +23,7 @@
 
 - (void)createAllPieces:(NSMutableArray *)rankArray;
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex;
+- (void)cannotMovePiece;
 - (void)canTakeInput:(Color)color;
 
 @end

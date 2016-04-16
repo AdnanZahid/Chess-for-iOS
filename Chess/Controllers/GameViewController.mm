@@ -23,6 +23,7 @@ class Controller;
 - (void)displayError:(NSString *)message;
 - (void)createAllPieces:(NSMutableArray *)rankArray;
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex;
+- (void)cannotMovePiece;
 - (void)canTakeInput:(Color)color;
 
 @end
@@ -96,6 +97,8 @@ public:
         if (this->gameLogic->movePiece(from, to)) {
             this->movePiece(from, to);
             this->canTakeInputOrGenerateMove();
+        } else {
+            this->cannotMovePiece();
         }
     }
     
@@ -109,6 +112,10 @@ public:
         Index fromIndex = this->board->positionToIndex(from);
         Index toIndex = this->board->positionToIndex(to);
         [this->gameViewController movePiece:fromIndex to:toIndex];
+    }
+    
+    void cannotMovePiece() {
+        [this->gameViewController cannotMovePiece];
     }
     
     void startNewGame() {
@@ -134,6 +141,12 @@ public:
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         [self.gameView movePiece:fromIndex to:toIndex];
+    });
+}
+
+- (void)cannotMovePiece {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        [self.gameView cannotMovePiece];
     });
 }
 
