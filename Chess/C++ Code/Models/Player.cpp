@@ -112,13 +112,13 @@ public:
     
     void setupPieces() {
         
-        for (int a = 7; a > -1; a--) {
-            for (int b = 0; b < 8; b++) {
-                int value = startup[a][b];
+        for (int rank = 7; rank > -1; rank --) {
+            for (int file = 0; file < 8; file ++) {
+                int value = startup[rank][file];
                 
                 if (value != 0) {
                     
-                    Position position = this->board->indexToPosition(b, a);
+                    Position position = this->board->indexToPosition(file, rank);
                     
                     if (this->color == white) {
                         if (value > 0) {

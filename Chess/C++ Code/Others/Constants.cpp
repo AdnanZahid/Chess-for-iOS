@@ -16,6 +16,7 @@
 #define LIGHT_Y_POSITION 10.0f
 #define LIGHT_Z_POSITION 10.0f
 
+#define EmptyType  @"Empty"
 #define PawnType   @"Pawn"
 #define KnightType @"Knight"
 #define BishopType @"Bishop"

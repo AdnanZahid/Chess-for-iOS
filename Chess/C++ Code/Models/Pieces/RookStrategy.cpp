@@ -49,7 +49,7 @@ public:
         Index fromIndex = pieceStrategy->board->positionToIndex(pieceStrategy->position);
         Index index = fromIndex;
         
-        for (int rank = 0; rank < 8; rank ++) {
+        for (int rank = 0; rank < NUMBER_OF_RANKS_ON_BOARD; rank ++) {
             index.y = rank;
             Position to = pieceStrategy->board->indexToPosition(index.x, index.y);
             movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);
@@ -57,7 +57,7 @@ public:
         
         index.y = fromIndex.y;
         
-        for (int file = 0; file < 8; file ++) {
+        for (int file = 0; file < NUMBER_OF_FILES_ON_BOARD; file ++) {
             index.x = file;
             Position to = pieceStrategy->board->indexToPosition(index.x, index.y);
             movesList = pieceStrategy->addMoveToList(pieceStrategy->position, to, movesList);

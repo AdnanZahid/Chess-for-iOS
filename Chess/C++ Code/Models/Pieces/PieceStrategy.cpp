@@ -20,7 +20,7 @@ protected:
     
 public:
     int mobility;
-    bool hasMoved;
+    bool hasMoved = false;
     Position position;
     Board *board;
     PieceStrategyDelegate *pieceStrategyDelegate;

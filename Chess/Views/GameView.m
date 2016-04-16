@@ -16,15 +16,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *toFile;
 @property (weak, nonatomic) IBOutlet UITextField *toRank;
 
-@property (strong, nonatomic) NSMutableArray *rankArray;
-@property (nonatomic) BOOL isFirstTime;
+@property (strong, nonatomic) NSArray *previousBoardArray;
 
 @end
 
 @implementation GameView
 
 - (void)awakeFromNib {
-    self.isFirstTime = YES;
     self.scene = [SCNScene scene];
     
     self.allowsCameraControl = YES;
@@ -85,90 +83,79 @@
     return [boardNode flattenedClone];
 }
 
-- (void)displayView:(NSMutableArray *)rankArray {
-    self.rankArray = rankArray;
-    if (self.isFirstTime == YES) {
-        self.isFirstTime = NO;
-        [self createAllPieces:rankArray];
-    } else {
-        [self movePieces:rankArray];
-    }
-}
-
-- (void)movePieces:(NSMutableArray *)rankArray {
-    
-    for (NSUInteger i = 0; i < rankArray.count; i ++) {
-        NSArray *fileArray = rankArray[i];
-        NSArray *localFileArray = self.rankArray[i];
-        for (NSUInteger j = 0; j < fileArray.count; j ++) {
-            GameViewModel *viewModel = fileArray[j];
-            GameViewModel *localViewModel = localFileArray[j];
-            
-            if (viewModel.order == localViewModel.order) {
-                
-            } else {
-                
-                int a = 10 + 5;
-            }
-        }
-    }
+- (void)movePiece:(Index)fromIndex to:(Index)toIndex {
+    Index newFromIndex = fromIndex;
+    Index newToIndex = toIndex;
+    newFromIndex.y = abs(fromIndex.y - 7);
+    newToIndex.y = abs(toIndex.y - 7);
+    GameViewModel *viewModel = self.previousBoardArray[newFromIndex.y][newFromIndex.x];
+    SCNNode *pieceNode = viewModel.pieceNode;
+    [self.previousBoardArray[toIndex.y][toIndex.x] setPieceNode:[pieceNode copy]];
+    pieceNode.position = SCNVector3Make(newToIndex.x, 0.0f, newToIndex.y);
+    viewModel.pieceNode = nil;
+    [self createPieceOnX:fromIndex.y y:fromIndex.x type:EMPTY color:white viewModel:viewModel];
 }
 
 - (void)createAllPieces:(NSMutableArray *)rankArray {
+    self.previousBoardArray = rankArray;
     NSUInteger rank = 0;
-    
     for (NSArray *fileArray in rankArray) {
         NSUInteger file = 0;
         for (GameViewModel *viewModel in fileArray) {
             switch (viewModel.value) {
+                case EMPTY: {
+                    [self createPieceOnX:file y:rank type:EmptyType color:white viewModel:viewModel];
+                    break;
+                }
+                    
                 case PAWN: {
-                    [self createPieceOnX:file y:rank type:PawnType color:white];
+                    [self createPieceOnX:file y:rank type:PawnType color:white viewModel:viewModel];
                     break;
                 }
                 case KNIGHT: {
-                    [self createPieceOnX:file y:rank type:KnightType color:white];
+                    [self createPieceOnX:file y:rank type:KnightType color:white viewModel:viewModel];
                     break;
                 }
                 case BISHOP: {
-                    [self createPieceOnX:file y:rank type:BishopType color:white];
+                    [self createPieceOnX:file y:rank type:BishopType color:white viewModel:viewModel];
                     break;
                 }
                 case ROOK: {
-                    [self createPieceOnX:file y:rank type:RookType color:white];
+                    [self createPieceOnX:file y:rank type:RookType color:white viewModel:viewModel];
                     break;
                 }
                 case QUEEN: {
-                    [self createPieceOnX:file y:rank type:QueenType color:white];
+                    [self createPieceOnX:file y:rank type:QueenType color:white viewModel:viewModel];
                     break;
                 }
                 case KING: {
-                    [self createPieceOnX:file y:rank type:KingType color:white];
+                    [self createPieceOnX:file y:rank type:KingType color:white viewModel:viewModel];
                     break;
                 }
                     
                     
                 case -PAWN: {
-                    [self createPieceOnX:file y:rank type:PawnType color:black];
+                    [self createPieceOnX:file y:rank type:PawnType color:black viewModel:viewModel];
                     break;
                 }
                 case -KNIGHT: {
-                    [self createPieceOnX:file y:rank type:KnightType color:black];
+                    [self createPieceOnX:file y:rank type:KnightType color:black viewModel:viewModel];
                     break;
                 }
                 case -BISHOP: {
-                    [self createPieceOnX:file y:rank type:BishopType color:black];
+                    [self createPieceOnX:file y:rank type:BishopType color:black viewModel:viewModel];
                     break;
                 }
                 case -ROOK: {
-                    [self createPieceOnX:file y:rank type:RookType color:black];
+                    [self createPieceOnX:file y:rank type:RookType color:black viewModel:viewModel];
                     break;
                 }
                 case -QUEEN: {
-                    [self createPieceOnX:file y:rank type:QueenType color:black];
+                    [self createPieceOnX:file y:rank type:QueenType color:black viewModel:viewModel];
                     break;
                 }
                 case -KING: {
-                    [self createPieceOnX:file y:rank type:KingType color:black];
+                    [self createPieceOnX:file y:rank type:KingType color:black viewModel:viewModel];
                     break;
                 }
             }
@@ -178,25 +165,31 @@
     }
 }
 
-- (void)createPieceOnX:(NSUInteger)x y:(NSUInteger)y type:(NSString *)type color:(Color)color {
+- (void)createPieceOnX:(NSUInteger)x y:(NSUInteger)y type:(NSString *)type color:(Color)color viewModel:(GameViewModel *)viewModel {
     
-    SCNScene *pieces = [SCNScene sceneNamed:@"art.scnassets/chess pieces.dae"];
-    
-    SCNNode *node = [pieces.rootNode childNodeWithName:type recursively:YES];
-    node = [node copy];
-    
-    if (color == black) {
-        node.geometry = [node.geometry copy];
-        SCNMaterial *blackMaterial = [node.geometry.firstMaterial copy];
-        blackMaterial.diffuse.contents = [UIColor colorWithWhite:0.35 alpha:1.0];
-        node.geometry.firstMaterial = blackMaterial;
+    if ([type isEqualToString:EmptyType] == NO) {
+        SCNScene *pieces = [SCNScene sceneNamed:@"art.scnassets/chess pieces.dae"];
+        
+        SCNNode *node = [pieces.rootNode childNodeWithName:type recursively:YES];
+        node = [node copy];
+        
+        if (color == black) {
+            node.geometry = [node.geometry copy];
+            SCNMaterial *blackMaterial = [node.geometry.firstMaterial copy];
+            blackMaterial.diffuse.contents = [UIColor colorWithWhite:0.35 alpha:1.0];
+            node.geometry.firstMaterial = blackMaterial;
+        }
+        
+        node.position = SCNVector3Make(x, 0, y);
+        node.rotation = SCNVector4Make(1.0f, 0, 0, M_PI_2);
+        node.scale = SCNVector3Make(.67, .67, .67);
+        
+        [self.scene.rootNode addChildNode:node];
+        viewModel.pieceNode = node;
     }
     
-    node.position = SCNVector3Make(x, 0, y);
-    node.rotation = SCNVector4Make(1.0f, 0, 0, M_PI_2);
-    node.scale = SCNVector3Make(.67, .67, .67);
-    
-    [self.scene.rootNode addChildNode:node];
+    viewModel.x = x;
+    viewModel.y = y;
 }
 
 - (IBAction)submit:(id)sender {
