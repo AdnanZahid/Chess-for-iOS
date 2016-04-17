@@ -18,8 +18,8 @@ class GameLogic : ErrorDelegate, InputDelegate {
     
 private:
     Board *board;
-    Player *whitePlayer;
-    AIPlayer *blackPlayer;
+    WHITE_PLAYER *whitePlayer;
+    BLACK_PLAYER *blackPlayer;
     ErrorDelegate *errorDelegate;
     InputDelegate *inputDelegate;
 
@@ -30,8 +30,8 @@ public:
         this->board = new Board();
         this->errorDelegate = errorDelegate;
         this->inputDelegate = inputDelegate;
-        this->whitePlayer = new Player(this, this, white, this->board);
-        this->blackPlayer = new AIPlayer(this, this, black, this->board);
+        this->whitePlayer = new WHITE_PLAYER(this, this, white, this->board);
+        this->blackPlayer = new BLACK_PLAYER(this, this, black, this->board);
         this->whitePlayer->opponent = this->blackPlayer;
         this->blackPlayer->opponent = this->whitePlayer;
         this->currentPlayer = this->whitePlayer;

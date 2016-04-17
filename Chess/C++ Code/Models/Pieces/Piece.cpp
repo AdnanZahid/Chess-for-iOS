@@ -36,6 +36,7 @@ private:
     Board *board;
     PieceDelegate *pieceDelegate;
     std::stack <StateStack> stateStack;
+    bool isFirstTime = true;
     
 public:
     int value;
@@ -66,14 +67,17 @@ public:
         this->position = position;
         this->pieceStrategy->setPosition(this->position);
         
-        Index index = this->board->positionToIndex(this->position);
-        this->order = (index.y * NUMBER_OF_RANKS_ON_BOARD) + index.x + 1;
+        if (this->isFirstTime == true) {
+            this->isFirstTime = false;
+            Index index = this->board->positionToIndex(this->position);
+            this->order = (index.y * NUMBER_OF_RANKS_ON_BOARD) + index.x + 1;
+        }
     }
     
     void promoteIfApplicable() {
         if ((this->position.rank == RANK_ONE || this->position.rank == RANK_EIGHT) && this->value == PAWN) {
             this->value = QUEEN;
-//            this->setPieceStrategy(new QueenStrategy(this->board)); // UNCOMMENT THIS PLEASE
+            //            this->setPieceStrategy(new QueenStrategy(this->board)); // UNCOMMENT THIS PLEASE
         }
     }
     

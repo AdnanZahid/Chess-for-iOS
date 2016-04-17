@@ -8,6 +8,9 @@
 
 #pragma once
 
+#define WHITE_PLAYER Player
+#define BLACK_PLAYER Player
+
 #define MAIN_QUEUE dispatch_async(dispatch_get_main_queue(), ^(void) {
 #define OTHER_QUEUE dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
 
