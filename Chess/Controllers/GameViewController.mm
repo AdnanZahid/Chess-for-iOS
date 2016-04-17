@@ -65,7 +65,8 @@ public:
                         sign = -1;
                     }
                     
-                    [fileArray addObject:[GameViewModel modelWithValue:sign * this->board->pieceArray[rank][file]->value order:this->board->pieceArray[rank][file]->order]];
+                    Piece *piece = this->board->pieceArray[rank][file];
+                    [fileArray addObject:[GameViewModel modelWithValue:sign * piece->value order:piece->order]];
                 } else {
                     [fileArray addObject:[GameViewModel modelWithValue:EMPTY order:EMPTY]];
                 }
@@ -114,6 +115,37 @@ public:
         [this->gameViewController movePiece:fromIndex to:toIndex];
     }
     
+    NSMutableArray *generateMoves(NSUInteger file, NSUInteger rank) {
+        return this->convertMovesToArray(this->board->pieceArray[rank][file]->pieceStrategy);
+    }
+    
+    NSMutableArray *convertMovesToArray(PieceStrategy *pieceStrategy) {
+        
+        NSMutableArray *movesArray = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_RANKS_ON_BOARD];
+        
+        for (int file = 0; file < NUMBER_OF_FILES_ON_BOARD; file ++) {
+            [movesArray addObject:[NSMutableArray arrayWithObjects:
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:NO],
+                                   nil]];
+        }
+        
+        DecentralBitboard *decentralBitboard = pieceStrategy->decentralBitboard;
+        std::list<Position> moves = pieceStrategy->centralBitboard->computePositionsFromBitboard(decentralBitboard->moves);
+        for(std::list<Position>::iterator iterator = moves.begin(); iterator != moves.end(); iterator++) {
+            Index index = this->board->positionToIndex(*iterator);
+            movesArray[index.y][index.x] = [NSNumber numberWithBool:YES];
+        }
+        
+        return movesArray;
+    }
+    
     void cannotMovePiece() {
         [this->gameViewController cannotMovePiece];
     }
@@ -127,7 +159,9 @@ public:
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.controller = new Controller(self);
+    OTHER_QUEUE
+        self.controller = new Controller(self);
+    });
 }
 
 - (void)displayError:(NSString *)message {
@@ -135,35 +169,43 @@ public:
 }
 
 - (void)createAllPieces:(NSMutableArray *)rankArray {
-    [self.gameView createAllPieces:rankArray];
+    MAIN_QUEUE
+        [self.gameView createAllPieces:rankArray];
+    });
 }
 
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex {
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
+    MAIN_QUEUE
         [self.gameView movePiece:fromIndex to:toIndex];
     });
 }
 
 - (void)cannotMovePiece {
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
+    MAIN_QUEUE
         [self.gameView cannotMovePiece];
     });
 }
 
 - (void)canTakeInput:(Color)color {
-    [self.gameView canTakeInput:color];
+    MAIN_QUEUE
+        [self.gameView canTakeInput:color];
+    });
 }
 
 - (void)inputTakenFrom:(Position)from to:(Position)to {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+    OTHER_QUEUE
         self.controller->inputTaken(from, to);
     });
 }
 
 - (void)inputTakenFromIndex:(Index)fromIndex toIndex:(Index)toIndex {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+    OTHER_QUEUE
         self.controller->inputTaken(fromIndex, toIndex);
     });
+}
+
+- (NSMutableArray *)generateMovesForPieceOnFile:(NSUInteger)file rank:(NSUInteger)rank {
+    return self.controller->generateMoves(file, rank);
 }
 
 - (BOOL)prefersStatusBarHidden {

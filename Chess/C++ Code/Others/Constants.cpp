@@ -8,23 +8,31 @@
 
 #pragma once
 
-#define CAMERA_X_POSITION 3.5f
-#define CAMERA_Y_POSITION 12.0f
-#define CAMERA_Z_POSITION 14.0f
+#define MAIN_QUEUE dispatch_async(dispatch_get_main_queue(), ^(void) {
+#define OTHER_QUEUE dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
 
-#define WHITE_CAMERA_X_ROTATION -0.85f
+#define WHITE_CAMERA_X_POSITION 3.5f
+#define WHITE_CAMERA_Y_POSITION 12.0f
+#define WHITE_CAMERA_Z_POSITION 14.0f
+
+#define BLACK_CAMERA_X_POSITION 3.5f
+#define BLACK_CAMERA_Y_POSITION 12.0f
+#define BLACK_CAMERA_Z_POSITION -7.0f
+
+#define WHITE_CAMERA_X_ROTATION 0.0f
 #define WHITE_CAMERA_Y_ROTATION 0.0f
 #define WHITE_CAMERA_Z_ROTATION 0.0f
 
-#define BLACK_CAMERA_X_ROTATION -0.85f
+#define BLACK_CAMERA_X_ROTATION 0.0f
 #define BLACK_CAMERA_Y_ROTATION 0.0f
-#define BLACK_CAMERA_Z_ROTATION 0.0f
+#define BLACK_CAMERA_Z_ROTATION M_PI
 
 #define LIGHT_X_POSITION 0.0f
 #define LIGHT_Y_POSITION 10.0f
 #define LIGHT_Z_POSITION 10.0f
 
 #define LIFT_PIECE_Y_DISTANCE 0.5f
+#define CAPTURED_PIECE_Z_DISTANCE 10.0f
 
 #define EmptyType  @"Empty"
 #define PawnType   @"Pawn"

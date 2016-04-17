@@ -14,6 +14,7 @@
 
 - (void)inputTakenFrom:(Position)from to:(Position)to;
 - (void)inputTakenFromIndex:(Index)fromIndex toIndex:(Index)toIndex;
+- (NSMutableArray *)generateMovesForPieceOnFile:(NSUInteger)file rank:(NSUInteger)rank;
 
 @end
 
