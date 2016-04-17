@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B332E391CC3A9ED009E594D /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B332E381CC3A9ED009E594D /* UIAlertView+Blocks.m */; };
 		4B85A22B1CB582CF001C619D /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4413C1CB578670099837C /* GameViewController.mm */; };
 		4B85A22C1CB582CF001C619D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4413F1CB578670099837C /* AppDelegate.m */; };
 		4B85A22D1CB582CF001C619D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB441471CB578670099837C /* main.m */; };
@@ -88,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B332E371CC3A9ED009E594D /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		4B332E381CC3A9ED009E594D /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		4B85A2461CB58395001C619D /* Chess for desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess for desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B85A2481CB58395001C619D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4B85A2491CB58395001C619D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				4BD23AB11CC100130010B542 /* GameViewModel.m */,
 				4BAD9E731CC2B33E009001B5 /* SquareNode.h */,
 				4BAD9E741CC2B33E009001B5 /* SquareNode.m */,
+				4B332E371CC3A9ED009E594D /* UIAlertView+Blocks.h */,
+				4B332E381CC3A9ED009E594D /* UIAlertView+Blocks.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 				4B85A2301CB582CF001C619D /* Bitboard.cpp in Sources */,
 				4B85A2311CB582CF001C619D /* BitboardHandler.cpp in Sources */,
 				4B85A2321CB582CF001C619D /* Board.cpp in Sources */,
+				4B332E391CC3A9ED009E594D /* UIAlertView+Blocks.m in Sources */,
 				4BAD9E751CC2B33E009001B5 /* SquareNode.m in Sources */,
 				4B85A2331CB582CF001C619D /* CentralBitboard.cpp in Sources */,
 				4BD23AA31CC0D6650010B542 /* PieceDelegate.cpp in Sources */,

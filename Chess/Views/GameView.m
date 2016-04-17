@@ -9,6 +9,7 @@
 #import "GameView.h"
 #import "GameViewModel.h"
 #import "SquareNode.h"
+#import "UIAlertView+Blocks.h"
 
 @interface GameView()
 
@@ -44,7 +45,7 @@
     SCNNode *cameraTarget = [SCNNode node];
     cameraTarget.position = SCNVector3Make(WHITE_CAMERA_X_POSITION, 0.0f, WHITE_CAMERA_X_POSITION);
     SCNLookAtConstraint *lookAtCenter = [SCNLookAtConstraint lookAtConstraintWithTarget:cameraTarget];
-//    lookAtCenter.gimbalLockEnabled = YES;
+    //    lookAtCenter.gimbalLockEnabled = YES;
     self.cameraNode.constraints = @[lookAtCenter];
     
     SCNNode *lightNode = [SCNNode node];
@@ -101,9 +102,10 @@
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex {
     SCNNode *capturedPieceNode = [self.previousBoardArray[toIndex.y][toIndex.x] pieceNode];
     if (capturedPieceNode != nil) {
-        [self animateWithAction:^{
-            [self moveCapturedPiece:capturedPieceNode direction:-1];
-        }];
+        //        [self animateWithAction:^{
+        //            [self moveCapturedPiece:capturedPieceNode direction:-1];
+        //        }];
+        [capturedPieceNode removeFromParentNode];
     }
     
     GameViewModel *viewModel = self.previousBoardArray[fromIndex.y][fromIndex.x];
@@ -241,17 +243,19 @@
 }
 
 - (void)canTakeInput:(Color)color {
-    if (color == white) {
-        [self animateWithAction:^{
-            self.cameraNode.position = SCNVector3Make(WHITE_CAMERA_X_POSITION, WHITE_CAMERA_Y_POSITION, WHITE_CAMERA_Z_POSITION);
-            self.cameraNode.eulerAngles = SCNVector3Make(WHITE_CAMERA_X_ROTATION, WHITE_CAMERA_Y_ROTATION, WHITE_CAMERA_Z_ROTATION);
-        }];
-    } else {
-        [self animateWithAction:^{
-            self.cameraNode.position = SCNVector3Make(BLACK_CAMERA_X_POSITION, BLACK_CAMERA_Y_POSITION, BLACK_CAMERA_Z_POSITION);
-            self.cameraNode.eulerAngles = SCNVector3Make(BLACK_CAMERA_X_ROTATION, BLACK_CAMERA_Y_ROTATION, BLACK_CAMERA_Z_ROTATION);
-        }];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        if (color == white) {
+            [self animateWithAction:^{
+                self.cameraNode.position = SCNVector3Make(WHITE_CAMERA_X_POSITION, WHITE_CAMERA_Y_POSITION, WHITE_CAMERA_Z_POSITION);
+                self.cameraNode.eulerAngles = SCNVector3Make(WHITE_CAMERA_X_ROTATION, WHITE_CAMERA_Y_ROTATION, WHITE_CAMERA_Z_ROTATION);
+            }];
+        } else {
+            [self animateWithAction:^{
+                self.cameraNode.position = SCNVector3Make(BLACK_CAMERA_X_POSITION, BLACK_CAMERA_Y_POSITION, BLACK_CAMERA_Z_POSITION);
+                self.cameraNode.eulerAngles = SCNVector3Make(BLACK_CAMERA_X_ROTATION, BLACK_CAMERA_Y_ROTATION, BLACK_CAMERA_Z_ROTATION);
+            }];
+        }
+    });
 }
 
 - (void)moveCapturedPiece:(SCNNode *)pieceNode direction:(int)direction {
@@ -321,6 +325,14 @@
     }
     
     [self.gameViewDelegate inputTakenFromIndex:fromIndex toIndex:toIndex];
+}
+
+- (void)displayError:(NSString *)message {
+    [UIAlertView showWithTitle:message
+                       message:nil
+             cancelButtonTitle:@"Okay"
+             otherButtonTitles:nil
+                      tapBlock:nil];
 }
 
 - (void)handleTap:(UIGestureRecognizer*)gestureRecognizer {

@@ -26,5 +26,6 @@
 - (void)movePiece:(Index)fromIndex to:(Index)toIndex;
 - (void)cannotMovePiece;
 - (void)canTakeInput:(Color)color;
+- (void)displayError:(NSString *)message;
 
 @end

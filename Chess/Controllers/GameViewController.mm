@@ -165,7 +165,9 @@ public:
 }
 
 - (void)displayError:(NSString *)message {
-    
+    MAIN_QUEUE
+        [self.gameView displayError:message];
+    });
 }
 
 - (void)createAllPieces:(NSMutableArray *)rankArray {
