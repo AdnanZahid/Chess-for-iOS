@@ -14,14 +14,16 @@ private:
     
     
 public:
-    int getEvaluationValue(std::list<Piece> piecesList) {
+    int getEvaluationValue(std::list<Piece *> piecesList) {
         
         int mobility = 0;
         int value = 0;
         
-        for(std::list<Piece>::iterator iterator = piecesList.begin(); iterator != piecesList.end(); iterator++) {
-            mobility += iterator->pieceStrategy->mobility;
-            value += iterator->value;
+        for(std::list<Piece *>::iterator iterator = piecesList.begin(); iterator != piecesList.end(); iterator++) {
+            if ((*iterator)->isCaptured == false) {
+                mobility += (*iterator)->pieceStrategy->mobility;
+                value += (*iterator)->value;
+            }
         }
         
         return mobility + value;

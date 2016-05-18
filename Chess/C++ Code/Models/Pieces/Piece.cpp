@@ -41,6 +41,7 @@ private:
 public:
     int value;
     int order;
+    bool isCaptured = false;
     Color color;
     Position position;
     PieceStrategy *pieceStrategy;
@@ -77,7 +78,7 @@ public:
     void promoteIfApplicable() {
         if ((this->position.rank == RANK_ONE || this->position.rank == RANK_EIGHT) && this->value == PAWN) {
             this->value = QUEEN;
-            //            this->setPieceStrategy(new QueenStrategy(this->board)); // UNCOMMENT THIS PLEASE
+//            this->setPieceStrategy(new QueenStrategy(this->board)); // UNCOMMENT THIS PLEASE
         }
     }
     

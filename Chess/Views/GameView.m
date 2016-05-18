@@ -328,11 +328,11 @@
 }
 
 - (void)displayError:(NSString *)message {
-    [UIAlertView showWithTitle:message
-                       message:nil
-             cancelButtonTitle:@"Okay"
-             otherButtonTitles:nil
-                      tapBlock:nil];
+//    [UIAlertView showWithTitle:message
+//                       message:nil
+//             cancelButtonTitle:@"Okay"
+//             otherButtonTitles:nil
+//                      tapBlock:nil];
 }
 
 - (void)handleTap:(UIGestureRecognizer*)gestureRecognizer {

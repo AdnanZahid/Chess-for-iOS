@@ -79,7 +79,7 @@ public:
         
         if (destinationPiece == nullptr || destinationPiece->color != this->color) {
             
-            if (from.file == to.file && this->board->getPieceOnPosition(to) == nullptr) {
+            if (from.file == to.file && (this->board->getPieceOnPosition(to) == nullptr || this->board->getPieceOnPosition(to)->value == KING)) {
                 
                 Position tempPosition = from;
                 tempPosition.rank += oneStep;

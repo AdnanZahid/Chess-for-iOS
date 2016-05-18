@@ -30,21 +30,22 @@ public:
         
         Move bestValue = { { '\0', '\0' }, { '\0', '\0' }, std::numeric_limits<int>::min() };
         
-        for(std::list<Piece>::iterator pieceNode = player->piecesList.begin(); pieceNode != player->piecesList.end(); pieceNode++) {
+        for(std::list<Piece *>::iterator pieceNode = player->piecesList.begin(); pieceNode != player->piecesList.end(); pieceNode++) {
             
-            std::list<Position> moves = player->centralBitboard->computePositionsFromBitboard(pieceNode->pieceStrategy->decentralBitboard->moves);
+            std::list<Position> moves = player->centralBitboard->computePositionsFromBitboard((*pieceNode)->pieceStrategy->decentralBitboard->moves);
             
             for(std::list<Position>::iterator iterator = moves.begin(); iterator != moves.end(); iterator++) {
                 
-                Position fromPosition = pieceNode->position;
+                Position fromPosition = (*pieceNode)->position;
                 Position toPosition = *iterator;
                 
-                if (pieceNode->moveTo(toPosition) == true) {
+                player->updateMoves();
+                if (player->movePiece((*pieceNode)->position, toPosition) == true) {
                     player->updateMoves();
                     
                     Move value = { fromPosition, toPosition, -(alphaBeta(depth - 1, player->opponent, -beta, -alpha)) };
                     
-                    pieceNode->undoMove();
+                    (*pieceNode)->undoMove();
                     player->updateMoves();
                     
                     if (value.evaluationValue > bestValue.evaluationValue) {
@@ -75,21 +76,22 @@ public:
         
         int bestValue = std::numeric_limits<int>::min();
                 
-        for(std::list<Piece>::iterator pieceNode = player->piecesList.begin(); pieceNode != player->piecesList.end(); pieceNode++) {
+        for(std::list<Piece *>::iterator pieceNode = player->piecesList.begin(); pieceNode != player->piecesList.end(); pieceNode++) {
             
-            std::list<Position> moves = player->centralBitboard->computePositionsFromBitboard(pieceNode->pieceStrategy->decentralBitboard->moves);
+            std::list<Position> moves = player->centralBitboard->computePositionsFromBitboard((*pieceNode)->pieceStrategy->decentralBitboard->moves);
             
             for(std::list<Position>::iterator iterator = moves.begin(); iterator != moves.end(); iterator++) {
                 
-                Position fromPosition = pieceNode->position;
+                Position fromPosition = (*pieceNode)->position;
                 Position toPosition = *iterator;
                 
-                if (pieceNode->moveTo(toPosition) == true) {
+                player->updateMoves();
+                if (player->movePiece((*pieceNode)->position, toPosition) == true) {
                     player->updateMoves();
                     
                     int value = -(this->alphaBeta(depth - 1, player->opponent,-beta,-alpha));
                     
-                    pieceNode->undoMove();
+                    (*pieceNode)->undoMove();
                     player->updateMoves();
                     
                     if (value > bestValue) {

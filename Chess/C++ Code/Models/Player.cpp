@@ -34,7 +34,7 @@ protected:
 public:
     Color color;
     CentralBitboard *centralBitboard;
-    std::list<Piece> piecesList;
+    std::list<Piece *> piecesList;
     Player *opponent;
     int evaluationValue = 0;
     bool isAI;
@@ -56,18 +56,19 @@ public:
     
     void addPiece(Piece *piece) {
         if (piece != nullptr) {
-            this->piecesList.push_back(*piece);
+            piece->isCaptured = false;
         }
     }
     
     void removePiece(Piece *piece) {
         if (piece != nullptr) {
-            for(std::list<Piece>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
-                if (iterator->order == piece->order) {
-                    this->piecesList.erase(iterator);
-                    break;
-                }
-            }
+//            for(std::list<Piece *>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
+//                if ((*iterator)->order == piece->order) {
+//                    this->piecesList.erase(iterator);
+                    piece->isCaptured = true;
+//                    break;
+//                }
+//            }
         }
     }
     
@@ -84,25 +85,25 @@ public:
     
     bool isUnderCheckmate() {
         
-        for(std::list<Piece>::iterator pieceNode = this->piecesList.begin(); pieceNode != this->piecesList.end(); pieceNode++) {
+        for(std::list<Piece *>::iterator pieceNode = this->piecesList.begin(); pieceNode != this->piecesList.end(); pieceNode++) {
             
-            std::list<Position> moves = this->centralBitboard->computePositionsFromBitboard(pieceNode->pieceStrategy->decentralBitboard->moves);
+            std::list<Position> moves = this->centralBitboard->computePositionsFromBitboard((*pieceNode)->pieceStrategy->decentralBitboard->moves);
             
             for(std::list<Position>::iterator iterator = moves.begin(); iterator != moves.end(); iterator++) {
                 
                 Piece *capturedPiece = this->board->getPieceOnPosition(*iterator);
                 
-                if ((*pieceNode).moveTo(*iterator) == true) {
+                if ((*pieceNode)->moveTo(*iterator) == true) {
                     
                     this->opponent->removePiece(capturedPiece);
                     
                     if (this->isUnderCheck() == false) {
-                        pieceNode->undoMove();
+                        (*pieceNode)->undoMove();
                         this->opponent->addPiece(capturedPiece);
                         
                         return false;
                     }
-                    pieceNode->undoMove();
+                    (*pieceNode)->undoMove();
                     this->opponent->addPiece(capturedPiece);
                 }
             }
@@ -137,7 +138,7 @@ public:
     void createPiece(int value, Position position) {
         
         Piece *piece = PieceFactory::createPiece(value, this->color, position, this->board, this, this->centralBitboard);
-        this->addPiece(piece);
+        this->piecesList.push_back(piece);
         
         if (value == KING) {
             this->king = piece;
@@ -161,8 +162,8 @@ public:
     
     void updateMoves() {
         this->bitboardHandler->clearAllMovesBitboards();
-        for(std::list<Piece>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
-            iterator->updateMoves();
+        for(std::list<Piece *>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
+            (*iterator)->updateMoves();
         }
         
         this->bitboardHandler->updatePresenceAndMovesArrays();
@@ -180,38 +181,41 @@ public:
     bool movePiece(Position from, Position to) {
         
         Piece *piece = this->board->getPieceOnPosition(from);
-        Piece *destinationPiece = this->board->getPieceOnPosition(to);
         
-        if (from.rank != to.rank || from.file != to.file) {
-            if (piece != nullptr) {
-                if (piece->color == this->color) {
-                    if (piece->moveTo(to) == true) {
-                        this->opponent->removePiece(destinationPiece);
-                        if (this->isUnderCheck() == false) {
-                            if (this->opponent->isUnderCheck() == true) {
-                                if (this->opponent->isUnderCheckmate() == true) {
-                                    this->errorDelegate->error(CHECKMATE_STRING);
-                                } else {
-                                    this->errorDelegate->error(CHECK_STRING);
+        if (piece->isCaptured == false) {
+            Piece *destinationPiece = this->board->getPieceOnPosition(to);
+            
+            if (from.rank != to.rank || from.file != to.file) {
+                if (piece != nullptr) {
+                    if (piece->color == this->color) {
+                        if (piece->moveTo(to) == true) {
+                            this->opponent->removePiece(destinationPiece);
+                            if (this->isUnderCheck() == false) {
+                                if (this->opponent->isUnderCheck() == true) {
+                                    if (this->opponent->isUnderCheckmate() == true) {
+                                        this->errorDelegate->error(CHECKMATE_STRING);
+                                    } else {
+                                        this->errorDelegate->error(CHECK_STRING);
+                                    }
                                 }
+                                return true;
+                            } else {
+                                piece->undoMove();
+                                this->opponent->addPiece(destinationPiece);
+                                this->errorDelegate->error(KING_IS_UNDER_CHECK_STRING);
                             }
-                            return true;
                         } else {
-                            piece->undoMove();
-                            this->addPiece(destinationPiece);
-                            this->errorDelegate->error(KING_IS_UNDER_CHECK_STRING);
+                            this->errorDelegate->error(INVALID_MOVE_STRING);
                         }
                     } else {
-                        this->errorDelegate->error(INVALID_MOVE_STRING);
+                        this->errorDelegate->error(WRONG_TURN_STRING);
                     }
                 } else {
-                    this->errorDelegate->error(WRONG_TURN_STRING);
+                    this->errorDelegate->error(PIECE_DOES_NOT_EXIST_STRING);
                 }
             } else {
-                this->errorDelegate->error(PIECE_DOES_NOT_EXIST_STRING);
+                this->errorDelegate->error(PIECE_NOT_MOVED_STRING);
             }
-        } else {
-            this->errorDelegate->error(PIECE_NOT_MOVED_STRING);
         }
         return false;
     }
@@ -231,8 +235,8 @@ public:
     }
     
     bool canCheckDuringPassing(Position position) {
-        for(std::list<Piece>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
-            if (iterator->canCheck(position) == true) {
+        for(std::list<Piece *>::iterator iterator = this->piecesList.begin(); iterator != this->piecesList.end(); iterator++) {
+            if ((*iterator)->canCheck(position) == true) {
                 return true;
             }
         }
